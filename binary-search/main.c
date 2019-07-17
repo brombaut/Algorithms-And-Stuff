@@ -25,4 +25,5 @@ int main() {
   total_time = ((double) (end - start));
   printf("Index is: %d\n", result);
   printf("Time taken is: %f\n", total_time);
+  return 0;
 }
