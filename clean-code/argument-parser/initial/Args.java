@@ -1,4 +1,3 @@
-package args;
 import java.util.*;
 
 public class Args {
