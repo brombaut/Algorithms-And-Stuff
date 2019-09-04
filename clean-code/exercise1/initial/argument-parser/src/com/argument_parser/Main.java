@@ -1,4 +1,6 @@
-public class Driver {
+package com.argument_parser;
+
+public class Main {
 
     public static void main(String[] args) {
         try {
@@ -6,7 +8,7 @@ public class Driver {
             boolean logging = arg.getBoolean('l');
             int port = arg.getInt('p');
             String directory = arg.getString('d');
-            executeApplication(logging, port, directory);
+            // executeApplication(logging, port, directory);
         } catch (ArgsException e) {
             System.out.printf("Argument error: %s\n", e.errorMessage());
         }

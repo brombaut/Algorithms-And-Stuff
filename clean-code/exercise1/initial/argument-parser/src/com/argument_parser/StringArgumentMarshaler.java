@@ -1,5 +1,9 @@
-import ArgsException.ErrorCode.*;
-import java.util.*;
+package com.argument_parser;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+import static com.argument_parser.ArgsException.ErrorCode.*;
 
 public class StringArgumentMarshaler implements ArgumentMarshaler {
     private String stringValue = "";

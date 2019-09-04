@@ -1,5 +1,8 @@
+package com.argument_parser;
+
 import java.util.*;
-import ArgsException;
+
+import static com.argument_parser.ArgsException.ErrorCode.*;
 
 public class Args {
     private Map<Character, ArgumentMarshaler> marshalers;
@@ -107,8 +110,4 @@ public class Args {
     public String[] getStringArray(char arg) {
         return StringArrayArgumentMarshaler.getValue(marshalers.get(arg));
     }
-
-
-
-
 }

@@ -1,15 +1,19 @@
-import ArgsException.ErrorCode.*;
+package com.argument_parser;
 
-public class ArgsException extends Exception {
+public class ArgsException extends Exception{
     private static final long serialVersionUID = 1L;
     private char errorArgumentId = '\0';
     private String errorParameter = null;
-    private ErrorCode errorCode = OK;
+    private ErrorCode errorCode = ErrorCode.OK;
 
     public ArgsException() {}
 
     public ArgsException(String message) {
         super(message);
+    }
+
+    public ArgsException(ErrorCode errorCode) {
+        this.errorCode = errorCode;
     }
 
     public ArgsException(ErrorCode errorCode, String errorParameer) {
@@ -49,7 +53,7 @@ public class ArgsException extends Exception {
 
     public String errorMessage() {
         switch (errorCode) {
-            case OK: 
+            case OK:
                 return "TILT: Should not get here";
             case UNEXPECTED_ARGUMENT:
                 return String.format("Argument -%c unexpected.", errorArgumentId);
@@ -57,7 +61,7 @@ public class ArgsException extends Exception {
                 return String.format("Could not find string parameter for -%c.", errorArgumentId);
             case INVALID_INTEGER:
                 return String.format("Argument -%c expects an integer but was '%s'.", errorArgumentId, errorParameter);
-            case MISSING_INTEGERG:
+            case MISSING_INTEGER:
                 return String.format("Could not find integer parameter for -%c.", errorArgumentId);
             case INVALID_DOUBLE:
                 return String.format("Argument -%c expects a double but was '%s'.", errorArgumentId, errorParameter);
@@ -78,7 +82,7 @@ public class ArgsException extends Exception {
         INVALID_ARGUMENT_NAME,
         MISSING_STRING,
         INVALID_INTEGER,
-        MISSING_INTEGERG,
+        MISSING_INTEGER,
         INVALID_DOUBLE,
         MISSING_DOUBLE
     }
