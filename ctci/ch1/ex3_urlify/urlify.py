@@ -1,5 +1,4 @@
 
-# Returns true if a string has all unique characters
 def urlify(string):
     url_string = ""
     for char in string:
