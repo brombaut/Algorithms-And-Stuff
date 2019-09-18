@@ -1,5 +1,4 @@
 
-# Returns true if a string has all unique characters
 def palindrome_permutation(string):
     no_spaces = ""
     for char in string.lower():
