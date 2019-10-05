@@ -1,3 +1,3 @@
-# algorithms
+# Ben's Exocortext
 
-A collection of algorithms and other simple projects I'm making to solidify some stuff I've learnt and just for practice.
+A collection of resources and examples of topics I've read that I'd like to have easy access to.
