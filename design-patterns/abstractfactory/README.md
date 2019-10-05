@@ -5,33 +5,34 @@ The Abstract Factory Pattern provides an interface for creating families of rela
 
 #### Client
 The client is written against the abstract factory and then composed at runtime with an actual factory.
-+ Pizza Store
++ PizzaStore.java
 
 #### Abstract Factory
 Defines the interface that all concrete factories must implement, which consists of a set of methods for producing products.
-+ PizzaIngredientFactory
++ PizzaIngredientFactory.java
 
 #### Concrete Factory
 Implement the different product families. To create a product, the client uses one of these factories, so it never has to instantiate a product object.
-+ NYPizzaIngredientFactory
++ NYPizzaIngredientFactory.java
 
 #### Abstract Product
 The product family. Each concrete factory can produce an entire set of products.
-+ Dough
-+ Sauce
-+ Cheese
-+ Clams
-+ Veggies
-+ Pepperoni
++ Dough.java
++ Sauce.java
++ Cheese.java
++ Clams.java
++ Veggies.java
++ Pepperoni.java
 
 #### Concrete Product
-+ ThinCrustDough
-+ SlicedPepperoni
-+ ReggianoCheese
-+ RedPeppers
-+ Onion
-+ Mushroom
-+ MarinaraSauce
-+ Garlic
-+ FreshClams
+Concrete implementations of the products.
++ ThinCrustDough.java
++ SlicedPepperoni.java
++ ReggianoCheese.java
++ RedPeppers.java
++ Onion.java
++ Mushroom.java
++ MarinaraSauce.java
++ Garlic.java
++ FreshClams.java
 
