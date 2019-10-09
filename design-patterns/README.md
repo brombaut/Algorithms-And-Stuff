@@ -17,3 +17,10 @@ Class should be open for extension, but closed for modification. The goal is to 
 
 + ## Dependency Inversion Principle
 Depend upon abstractions. Do not depend upon concrete classes. High-level components should not depend on low-level components; rather, they should both depend on abstractions.
+
++ ## Principle of Least Knownedge
+Talk only to your immediate friends. When you are designing a system, be careful of the number of classes it interacts with and also how it comes to interact with those classes. This prevents us from creating designs that have a large number of classes coupled together so that changes in one part of the system cascade to other parts, When you build a lot of dependencoes between many classes, you are building a fragile system that will be costly to maintain and comple for others to understand. The principle provides some guidelines (Law of Demeter): take any object; now from any method in that object, the principle tells us that we should only invoke methods that belong to:
+* The object itself
+* Objects passed in as a parameter to the method
+* Any object the method creates or instantiates
+* Any components of the object
