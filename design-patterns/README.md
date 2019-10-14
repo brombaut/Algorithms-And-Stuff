@@ -24,3 +24,7 @@ Talk only to your immediate friends. When you are designing a system, be careful
 * Objects passed in as a parameter to the method
 * Any object the method creates or instantiates
 * Any components of the object
+
++ ## The Hollywood Principle
+"Don't call us, we'll call you"
+The Hollywood Principle gives us a way to prevent "dependency rot." Dependency rot happens when you have high-level components depending on low-level components depending on high-level components depending on side-ways components depending on low-level components, and so on. When rot sets in, no one can easily understand the way a system is designed. With the Hollywood principle, we allow low-level components to hook themselves into a system, but the high-level components determine when they are needed, and how. In other words, the high-level components give the low-level components a "don't call us, we'll call you" treatment.
