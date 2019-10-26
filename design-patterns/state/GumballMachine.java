@@ -21,7 +21,7 @@ public class GumballMachine {
 		this.count = numberGumballs;
  		if (numberGumballs > 0) {
 			state = noQuarterState;
-		} 
+		}
 	}
  
 	public void insertQuarter() {
