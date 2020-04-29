@@ -18,22 +18,37 @@ while [ "$1" != "" ]; do
   exerciseName=$1
   exerciseFldrPath="$chptFldr/ex"$count"_$exerciseName"
   mkdir $exerciseFldrPath
+
+  IFS='_' read -ra ADDR <<< "$exerciseName"
+  exerciseNameUpperCamel=""
+  for i in "${ADDR[@]}"; do
+      exerciseNameUpperCamel=${exerciseNameUpperCamel}${i^}
+  done
   
   pyFilePath="$exerciseFldrPath/$exerciseName.py"
   touch $pyFilePath
   read -r -d '' skeletonPythonCode << EOM
+import unittest
+
 def $exerciseName():
     PASS
 
+
+class Test$exerciseNameUpperCamel(unittest.TestCase):
+
+    def test_fail(self):
+        self.assertTrue(1 == 0)
+
+
 if __name__== "__main__":
-    $exerciseName()
+    unittest.main(verbosity=2)
 EOM
   echo "$skeletonPythonCode" > $pyFilePath;
   
   readMeFilePath="$exerciseFldrPath/README.md"
   touch $readMeFilePath
   read -r -d '' skeletonReadMe << EOM
-# $chptNum.$count - $exerciseName
+# $chptNum.$count - $exerciseNameUpperCamel
 
 DESCRIPTION
 

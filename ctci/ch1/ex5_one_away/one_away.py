@@ -1,5 +1,6 @@
 import unittest
 
+
 def one_away(s1, s2):
     if s1 == s2:
         return True
