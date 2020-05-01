@@ -21,7 +21,12 @@ if (NOT CONFIGURED_ONCE)
     CACHE STRING "Flags used by the compiler during all build types." FORCE)
 endif()
 
-add_executable(toDo main.cc ToDo.cc)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
+add_subdirectory(ToDoCore)
+
+add_executable(toDo main.cc)
+target_link_libraries(toDo toDoCore)
 
 add_test(toDoTest toDo)
 
