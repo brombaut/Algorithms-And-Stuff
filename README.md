@@ -6,3 +6,4 @@ A collection of resources and examples of topics I've read that I'd like to have
 - [ ] Write a floating point package (WASM, TDD)
 - [ ] Implement different encryption algorithms
 - [ ] Some sort of a networking project to get a better understanding of networking protocols
+- [ ] Site for beer deals
