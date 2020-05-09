@@ -25,7 +25,8 @@ while [ "$1" != "" ]; do
       exerciseNameUpperCamel=${exerciseNameUpperCamel}${i^}
   done
   
-  pyFilePath="$exerciseFldrPath/$exerciseName.py"
+  mkdir "$exerciseFldrPath/python/"
+  pyFilePath="$exerciseFldrPath/python/$exerciseName.py"
   touch $pyFilePath
   read -r -d '' skeletonPythonCode << EOM
 import unittest
