@@ -2,14 +2,14 @@
 
 int main(int argc, char *argv[]) {
   if (argc < 3) {
-    fprintf(stderr, "usage: tcp_client hostname port\n");
+    fprintf(stderr, "usage: udp_client hostname port\n");
     return 1;
   }
 
   printf("Configuring remote address...\n");
   struct addrinfo hints;
   memset(&hints, 0, sizeof(hints));
-  hints.ai_socktype = SOCK_STREAM;
+  hints.ai_socktype = SOCK_DGRAM;  // This is the only change from tcp_client in the previous chpater
   struct addrinfo *peer_address;
   if (getaddrinfo(argv[1], argv[2], &hints, &peer_address)) {
     fprintf(stderr, "getaddrinfo() failed. (%d)\n", GETSOCKETERRNO());
