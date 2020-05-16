@@ -7,7 +7,7 @@ To use the *toupper* service, run `./udp_server_toupper`, and then on a differen
 
 ### Questions
 
-1. **Hwo do *sento()* and *recvfrom()* differ from *send()* and *recv()*?**
+1. **How do *sento()* and *recvfrom()* differ from *send()* and *recv()*?**
 * The *send()* and *recv()* functions are useful after calling *connect()*. They only work with the one remote address that was passed to *connect()*. The *sendto()* and *recvfrom()* functions can be used with multiple remote addresses.
 
 2. **Can *send()* and *recv()* be used on UDP sockets?**

@@ -7,16 +7,15 @@
 #pragma comment(lib, "ws2_32.lib")
 
 #else
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
 #include <arpa/inet.h>
-#include <netdb.h>
-#include <unistd.h>
 #include <errno.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 #endif
-
 
 #if defined(_WIN32)
 #define ISVALIDSOCKET(s) ((s) != INVALID_SOCKET)
@@ -30,6 +29,6 @@
 #define GETSOCKETERRNO() (errno)
 #endif
 
-
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
