@@ -1,4 +1,4 @@
-# Chapter 4 - Establishing UDP Connections
+# Chapter 5 - Hostname Resolution and DNS
 
 `./lookup benrombaut.ca`
 
