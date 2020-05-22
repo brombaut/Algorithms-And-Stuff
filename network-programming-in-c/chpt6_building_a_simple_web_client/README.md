@@ -1,4 +1,4 @@
-# Chapter 6 - Building a Simple Web Server (HTTP)
+# Chapter 6 - Building a Simple Web Client (HTTP)
 
 Note that for the web_get program to be usccessful, the site must accept HTTP (not require HTTPS).
 
