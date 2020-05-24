@@ -1,7 +1,7 @@
 # Chapter 9 - Loading Secure Web Pages with HTTPS and OpenSSL
 
 
-```bin
+```bash
 gcc https_simple.c -o https_simple -lssl -lcrypto
 ./https_simple exmaple.com 443
 ```
