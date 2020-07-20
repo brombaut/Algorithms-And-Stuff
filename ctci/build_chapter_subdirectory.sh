@@ -32,7 +32,7 @@ while [ "$1" != "" ]; do
 import unittest
 
 def $exerciseName():
-    PASS
+    pass
 
 
 class Test$exerciseNameUpperCamel(unittest.TestCase):
