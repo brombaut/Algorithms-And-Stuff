@@ -1,6 +1,6 @@
 # 4.5 - ValidateBst
 
-DESCRIPTION
+Implement a function to check if a binary tree is a binary search tree
 
 ### EXAMPLE
 Input:   
