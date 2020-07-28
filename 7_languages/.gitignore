@@ -1,2 +1,7 @@
 .metals
 *.beam
+
+# Clojure
+
+doc/
+resources/
