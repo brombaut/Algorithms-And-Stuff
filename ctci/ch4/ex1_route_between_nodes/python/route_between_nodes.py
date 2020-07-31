@@ -9,7 +9,7 @@ class State(Enum):
     VISITING = 2
 
 
-class Node:
+class GraphNode:
     def __init__(self, name):
         self._name = name
         self._children = []
@@ -81,13 +81,13 @@ def route_between_nodes(graph, node_a, node_b):
 
 
 def build_directed_graph():
-    node_0 = Node("0")
-    node_1 = Node("1")
-    node_2 = Node("2")
-    node_3 = Node("3")
-    node_4 = Node("4")
-    node_5 = Node("5")
-    node_6 = Node("6")
+    node_0 = GraphNode("0")
+    node_1 = GraphNode("1")
+    node_2 = GraphNode("2")
+    node_3 = GraphNode("3")
+    node_4 = GraphNode("4")
+    node_5 = GraphNode("5")
+    node_6 = GraphNode("6")
 
     node_0.addChild(node_1)
     node_1.addChild(node_2)
