@@ -1,0 +1,390 @@
+LoadLibraries()
+attach(Auto)
+View(Auto)
+
+## 8
+# a) Simple linear regression on the Auto dataset with mpg as the response and horsepower as the predictor.
+lm.fit=lm(mpg~horsepower, data=Auto)
+# Use the summary() function to print the results and comment on the output.
+summary(lm.fit)
+# There is a relationship between predictor and response.
+# The p-value is close to zero, therefor the relationship is strong
+# The relationship between the predictor and the response is negative (coefficient is negative)
+# What is the predicted mpg associated with a horsepower of 98?
+predict(lm.fit, data.frame(horsepower=98))
+# What are the associated 95% confidence and prediction intervals?
+predict(lm.fit, data.frame(horsepower=98), interval="confidence")
+predict(lm.fit, data.frame(horsepower=98), interval="prediction")
+# b) Plot the response and the predictor. 
+# Use the abline()function to display the least squares regression line
+plot(horsepower, mpg)
+abline(lm.fit)
+# c) Use the plot() function to produce diagnostic plots of the least squares regression fit.
+# Comment on any problems you see with the fit.
+par(mfrow=c(2,2))
+plot(lm.fit)
+# Residuals vs Fitted plot shows that the relationship is non-linear
+
+
+## 9. Multiple linear regression on the Auto data set
+# a) Produce a scatterplot matrix which includes all of the variables in the data set.
+pairs(Auto)
+# b) Compute the matrix of correlations between the variables using the function cor().
+# You will need to exclude the name variable, which is qualitative.
+cor(subset(Auto, select=-name))
+# c) Perform multiple linear regression with mpg as the response and all other 
+# variables except name as the predictors. Comment on the output.
+lm.fit_multi = lm(mpg~.-name, data=Auto)
+summary(lm.fit_multi)
+# There is a relationship between predictors and response
+# `weight`, `year`, `origin` and `displacement` have statistically significant relationships
+# 0.75 coefficient for `year` suggests that later model year cars have better (higher) `mpg`
+# d) Use plot() function to produce diagnostic plots of the linear regression fit.
+# Comment on any problems you see with the fit. Do the residual plots suggest any unusually
+# large outliers? Does the leverage plot identify any observations with unusually hight leverage?
+par(mfrow=c(2,2))
+plot(lm.fit_multi)
+# There is evidence of non-linearity
+# Observation 14 has high leverage
+# e) Use * and : symboles to fit linear regression models with interaction effects.
+# Do any interactions appear to be statistically significant?
+lm.fit_multi_1 = lm(mpg~displacement+weight+year+origin, data=Auto)
+lm.fit_multi_2 = lm(mpg~displacement+weight+year*origin, data=Auto)
+lm.fit_multi_3 = lm(mpg~displacement+origin+year*weight, data=Auto)
+lm.fit_multi_4 = lm(mpg~year+origin+displacement*weight, data=Auto)
+summary(lm.fit_multi_1)
+summary(lm.fit_multi_2)
+summary(lm.fit_multi_3)
+summary(lm.fit_multi_4)
+# All 3 interactions tested seem to have statistically significant effects.
+# f) Try a few different transformations of the variables.
+lm.fit_multi_5 = lm(mpg~poly(displacement,3)+weight+year+origin, data=Auto)
+lm.fit_multi_6 = lm(mpg~displacement+I(log(weight))+year+origin, data=Auto)
+lm.fit_multi_7 = lm(mpg~displacement+I(weight^2)+year+origin, data=Auto)
+summary(lm.fit_multi_5)
+summary(lm.fit_multi_6)
+summary(lm.fit_multi_7)
+# `displacement`^2 has a larger effect than other `displacement` polynomials
+
+
+# 10. Use Carseats data set
+attach(Carseats)
+View(Carseats)
+# a) Fit a multiple regression model to predict Sales using Price, Urban, and US.
+lm.fit = lm(Sales~Price+Urban+US, data=Carseats)
+# b) Provide an interpretation of the coefficients in the model.
+summary(lm.fit)
+# Price - Relationship exists between price and sales given the 
+# low p-value of the t-statistic. The coefficient states a negative relationship 
+# between Price and Sales: as Price increases, Sales decreases.
+# UrbanYes - No relationship between the location of the store and the number 
+# of sales based on the high p-value of the t-statistic.
+# USYes - Relationship exists between whether the store is in the US or not and the 
+# amount of sales. The coefficient states a positive relationship between USYes 
+# and Sales: if the store is in the US, the sales will increase by approximately 1201 units.
+# c) Write out the model in equation form.
+# Sales = 13.04 + -0.05 Price + -0.02 UrbanYes + 1.20 USYes
+# d) For whih of the predictors can you reject the null hypothesis?
+# Price and USYes, based on the p-values, F-statistic, and p-value of the F-statistic.
+# e) Fit a smaller model that only uses the predictors for which there is evidence
+# of association with the outcome.
+lm.fit_smaller = lm(Sales~Price+US, data=Carseats)
+summary(lm.fit_smaller)
+# f) How well do the two models fit the data?
+# Based on the RSE and R^2 of the linear regressions, they both fit the data similarly, 
+# with linear regression from (e) fitting the data slightly better.
+# g) Using the model from (e), obtain 95% confidence intervals for the coefficients
+confint(lm.fit_smaller, level=0.95)
+# h) Is there evidence of outliers or high leverage observations in the model from (e)?
+plot(predict(lm.fit_smaller), rstudent(lm.fit_smaller))
+# All studentized residuals appear to be bounded by -3 to 3, so not potential outliers 
+# are suggested from the linear regression.
+par(mfrow=c(2,2))
+plot(lm.fit_smaller)
+# There are a few observations that greatly exceed (p+1)/n (0.0076) on the leverage-statistic 
+# plot that suggest that the corresponding points have high leverag
+
+## 11. Investigate t-statistic for the null hypothesis in simple linear regression without 
+# an intercept.
+set.seed(1)
+x=rnorm(100)
+y=2*x+rnorm(100)
+# a) Perform a simple linear regression of y onto x without an intercept.
+# Report the coefficient estimate, the standard error of this coefficient estimate, and the 
+# t-statistic and p-value associated with the null hypothesis
+lm.fit1 = lm(y~x+0)
+summary(lm.fit1)
+# The p-value of the t-statistic is near zero so the null hypothesis is rejected.
+# b) Perform a simple linear regression of x onto y without an intercept, and report 
+# the coefficient estimate, the standard error of this coefficient estimate, and the 
+# t-statistic and p-value associated with the null hypothesis
+lm.fit2 = lm(x~y+0)
+summary(lm.fit2)
+# c) What is the relationship between the results obtained in (a) and (b)?
+# Both results in (a) and (b) reflect the same line created in 11a. 
+# In other words, y=2x+ϵ could also be written x=0.5∗(y−ϵ).
+# d) What? Too long. Look at the book
+# e) Same as (d)
+# f) Show that when regression is performed with an intercept, the t-statistic for
+# the null hypothesis is the same for the regression of y onto x as it is for the 
+# regression of x onto y.
+lm.fit3 = lm(y~x)
+lm.fit4 = lm(x~y)
+summary(lm.fit3)
+summary(lm.fit4)
+# You can see the t-statistic is the same for the two linear regressions.
+
+# 12. Simple linear regression without an intercept
+# a) Under what circumstances is the coefficient estimate for the regression of x onto y
+# the same as the coefficient estimate for the regression of y onto x?
+# When the sum of the squares of the observed y-values are equal to the sum of 
+# the squares of the observed x-values.
+# b) Generate an example with n=100 obervations in which the coefficient estimate
+# for the regression of x onto y is different from the coefficient estimate foir the
+# regression ofy onto x.
+set.seed(1)
+x = rnorm(100)
+y = 2*x
+lm.fit = lm(y~x+0)
+lm.fit2 = lm(x~y+0)
+summary(lm.fit)
+summary(lm.fit2)
+# c) Same question as (b), but same coefficient
+set.seed(1)
+x = rnorm(100)
+y = -sample(x, 100)
+sum(x^2)
+sum(y^2)
+lm.fit = lm(y~x+0)
+lm.fit2 = lm(x~y+0)
+summary(lm.fit)
+summary(lm.fit2)
+# So long as sum sum(x^2) = sum(y^2) the condition in 12a. will be satisfied. 
+# Here we have simply taken all the xi in a different order and made them negative.
+
+# 13. Here we will create some simulated data and will fit simple linear regression
+# models to it. Make sure you use set.seed(1).
+set.seed(1)
+# a) Using rnorm() function, create a vector, x, containing 100 observations drawn from
+# a N(0,1) distribution. This represents a feature, X.
+x = rnorm(100)
+# b) Using rnorm() function, create a vector, eps, containing 100 observations drawn from
+# a N(0,0.25) distribution i.e. a normal districution with mean 0 and variance 0.25
+eps = rnorm(100, 0, sqrt(0.25))
+# c) Using x and eps, generate a vector y according to the model:
+# Y = -1 + 0.5X + error
+# What is the length of the vector y? What are the values of Bzero and Bone of the linear model?
+y = -1 + 0.5*x + eps
+# y is of length 100. Bzero is -1, Bone is 0.5.
+# d) Create a scatterplot displaying the relationship between x and y. 
+# Comment on what you observer
+plot(x,y)
+# There is a linear relationship between x and y with a positive slope, 
+# with a variance as is to be expected.
+# e) Fit a least square linear model to predict y using x. Comment on the model obtained.
+# How do the estimates for Bzero and Bone compare to the actual Bzero and Bone?
+lm.fit = lm(y~x)
+summary(lm.fit)
+# The linear regression fits a model close to the true value of the coefficients 
+# as was constructed. The model has a large F-statistic with a near-zero p-value 
+# so the null hypothesis can be rejected.
+# f) Display the least squares line on the scatterplot obtained in (d).
+# Draw the population regression line on the plot, in a different color. Use the legend()
+# command to create an appropriate legend.
+plot(x, y)
+abline(lm.fit, lwd=3, col=2)
+abline(-1, 0.5, lwd=3, col=3)
+legend(-1, legend = c("model fit", "pop. regression"), col=2:3, lwd=3)
+# g) Now fit a polynomial regression model that predicts y using x and x^2. Is there evidence
+# that the quadratic term improves the model fit? Explain.
+lm.fit_sq = lm(y~x+I(x^2))
+summary(lm.fit_sq)
+# There is evidence that model fit has increased over the training data given the 
+# slight increase in R2 and RSE. Although, the p-value of the t-statistic suggests 
+# that there isn’t a relationship between y and x2.
+# h) Repeat (a)-(f) after modifying the data generation process in such a way that there 
+# is less noise in the data. The model should remain the same. You can do this by
+# decreasing the variance of the normal distribution used to generate the error term.
+# Describe your results.
+set.seed(1)
+eps1 = rnorm(100, 0, 0.125)
+x1 = rnorm(100)
+y1 = -1 + 0.5*x1 + eps1
+plot(x1, y1)
+lm.fit1 = lm(y1~x1)
+summary(lm.fit1)
+abline(lm.fit1, lwd=3, col=2)
+abline(-1, 0.5, lwd=3, col=3)
+legend(-1, legend = c("model fit", "pop. regression"), col=2:3, lwd=3)
+# As expected, the error observed in R2 and RSE decreases considerably.
+# i) Same question a (h), but more noise. Do this by increasing the variance of the noraml
+# distribution used to generate the error term. Describe your results.
+set.seed(1)
+eps2 = rnorm(100, 0, 0.5)
+x2 = rnorm(100)
+y2 = -1 + 0.5*x2 + eps2
+plot(x2, y2)
+lm.fit2 = lm(y2~x2)
+summary(lm.fit2)
+abline(lm.fit2, lwd=3, col=2)
+abline(-1, 0.5, lwd=3, col=3)
+legend(-1, legend = c("model fit", "pop. regression"), col=2:3, lwd=3)
+# As expected, the error observed in R2 and RSE increases considerably.
+# j) What are the confidence intervals for Bzero and Bone based on the original data set, 
+# the noisier data set, and the less noisy data set? Comment on the results.
+confint(lm.fit)
+confint(lm.fit1)
+confint(lm.fit2)
+# All intervals seem to be centered on approximately 0.5, with the second fit’s interval 
+# being narrower than the first fit’s interval and the last fit’s interval being wider 
+# than the first fit’s interval.
+
+# 14. This problem focuses on the coolinearity problem.
+# a) Perform the following commands:
+set.seed(1)
+x1 = runif(100)
+x2 = 0.5 * x1 + rnorm(100)/10
+y = 2 + 2*x1 + 0.3*x2 + rnorm(100)
+# The last line corresponds to creating a linear model in which y is a function of x1 and x2.
+# Write out the form of the linear model. What are the regression coefficiends?
+# Y=2 + 2X1 + 0.3X2 + ϵ
+# B0=2, B1=2, B3=0.3
+# b) What is the correlation between x1 and x2? Create a scatterplot displaying the
+# relationship between the variables.
+cor(x1, x2)
+plot(x1, x2)
+# c) Using this data, fit a least squares regression to predict y using x1 and x2.
+# Describe the results obtained. What are the estimates for B0, B1, and B2? How
+# do these relate to the true B0, B1, and B2? Can you reject the null hypothesis
+# H0: B1=0? How about the null hypothesis H0: B2=0?
+lm.fit = lm(y~x1+x2)
+summary(lm.fit)
+# B0=2.1305, B1=1.4396, B3=1.0097
+# The regression coefficients are close to the true coefficients, although with 
+# high standard error. We can reject the null hypothesis for β1 because its p-value 
+# is below 5%. We cannot reject the null hypothesis for β2 because its p-value is much above 
+# the 5% typical cutoff, over 30%.
+# d) Now fit a least squares regression to predict y using only x1. Comment on your results.
+# Can you reject the null hypothesis H0: B1=0?
+lm.fit = lm(y~x1)
+summary(lm.fit)
+# Yes, we can reject the null hypothesis for the regression coefficient given the 
+# p-value for its t-statistic is near zero.
+# e) Same question as (d) but using x2.
+lm.fit = lm(y~x2)
+summary(lm.fit)
+# Yes, we can reject the null hypothesis for the regression coefficient given the 
+# p-value for its t-statistic is near zero.
+# f) Do the results obtained in (c)-(e) contradict each other?
+# No, because x1 and x2 have collinearity, it is hard to distinguish their effects 
+# when regressed upon together. When they are regressed upon separately, the linear 
+# relationship between y and each predictor is indicated more clearly.
+# g) Now suppose we have one additional observation, which was unfortunately mismeasured.
+x1 = c(x1, 0.1)
+x2 = c(x2, 0.8)
+y = c(y, 6)
+# Re-fit the linear model from (c)-(e) using this new data. What effect does this new 
+# observation have on each of the models? In each model, is this observatino an outlier?
+# A high-leverage point? Both? Explain.
+lm.fit1 = lm(y~x1+x2)
+summary(lm.fit1)
+lm.fit2 = lm(y~x1)
+summary(lm.fit2)
+lm.fit3 = lm(y~x2)
+summary(lm.fit3)
+# In the first model, it shifts x1 to statistically insignificance and shifts x2 to 
+# statistiscal significance from the change in p-values between the two linear regressions.
+
+par(mfrow=c(2,2))
+plot(lm.fit1)
+par(mfrow=c(2,2))
+plot(lm.fit2)
+par(mfrow=c(2,2))
+plot(lm.fit3)
+# In the first and third models, the point becomes a high leverage point.
+plot(predict(lm.fit1), rstudent(lm.fit1))
+plot(predict(lm.fit2), rstudent(lm.fit2))
+plot(predict(lm.fit3), rstudent(lm.fit3))
+#  Looking at the studentized residuals, we don’t observe points too far from the |3| value 
+# cutoff, except for the second linear regression: y ~ x1.
+
+# 15. This problem uses the Boston data set. We will try to predict per capita crime
+# rate using the other variables in this data set. In other words. per capita crime
+# rate is the response, and the other variables are the predictors.
+attach(Boston)
+summary(Boston)
+# a) For each predictor, fit a linear regression model to predict the response.
+# Describe your results. In which of the models is there a statistically significant
+# association betweem the predictor and the response? Create plots to back up your
+# assertions.
+Boston$chas = factor(Boston$chas, labels = c("N","Y"))
+summary(Boston)
+
+lm.zn = lm(crim~zn)
+summary(lm.zn) # yes
+
+lm.indus = lm(crim~indus)
+summary(lm.indus) # yes
+
+lm.chas = lm(crim~chas) 
+summary(lm.chas) # no
+
+lm.nox = lm(crim~nox)
+summary(lm.nox) # yes
+
+lm.rm = lm(crim~rm)
+summary(lm.rm) # yes
+
+lm.age = lm(crim~age)
+summary(lm.age) # yes
+
+lm.dis = lm(crim~dis)
+summary(lm.dis) # yes
+
+lm.rad = lm(crim~rad)
+summary(lm.rad) # yes
+
+lm.tax = lm(crim~tax)
+summary(lm.tax) # yes
+
+lm.ptratio = lm(crim~ptratio)
+summary(lm.ptratio) # yes
+
+lm.black = lm(crim~black)
+summary(lm.black) # yes
+
+lm.lstat = lm(crim~lstat)
+summary(lm.lstat) # yes
+
+lm.medv = lm(crim~medv)
+summary(lm.medv) # yes
+
+# All, except chas. Plot each linear regression using “plot(lm)” to see residuals.
+plot(lm.medv)
+
+# b) Fit a multiple regression model to predict the response using all of the predictors.
+# Describe your results. For which predictors can we reject the null hypothesis?
+lm.all = lm(crim~., data=Boston)
+summary(lm.all)
+# zn, dis, rad, black, medv
+# c) How do your results from (a) compare to your results from (b)? Create a plot 
+# displaying the univariate regression coefficients from (a) on the x-axis and the multiple
+# regression coefficients from (b) on the y-axis. That is, each predictor is displayed as a 
+# single point on the plot. Its coefficient in a simple linear regression model is shown on 
+# the x-axis, and its coefficient estimate in the multiple linear regression model is shown
+# on the y-axis.
+x = c(coefficients(lm.zn)[2],
+      coefficients(lm.indus)[2],
+      coefficients(lm.chas)[2],
+      coefficients(lm.nox)[2],
+      coefficients(lm.rm)[2],
+      coefficients(lm.age)[2],
+      coefficients(lm.dis)[2],
+      coefficients(lm.rad)[2],
+      coefficients(lm.tax)[2],
+      coefficients(lm.ptratio)[2],
+      coefficients(lm.black)[2],
+      coefficients(lm.lstat)[2],
+      coefficients(lm.medv)[2])
+y = coefficients(lm.all)[2:14]
+plot(x, y)
