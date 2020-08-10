@@ -388,3 +388,44 @@ x = c(coefficients(lm.zn)[2],
       coefficients(lm.medv)[2])
 y = coefficients(lm.all)[2:14]
 plot(x, y)
+# Coefficient for nox is approximately -10 in univariate model and 31 in 
+# multiple regression model.
+# d) Is there evidence of non-linear association between any of the predictors and the response?
+# To answer this question, for each predictor X, fit a model of the form:
+# Y = B0 + B1X + B2X^2 + B3X^3 + error
+lm.zn = lm(crim~poly(zn,3))
+summary(lm.zn) # 1, 2
+
+lm.indus = lm(crim~poly(indus,3))
+summary(lm.indus) # 1, 2, 3
+
+# lm.chas = lm(crim~poly(chas,3)) : qualitative predictor
+lm.nox = lm(crim~poly(nox,3))
+summary(lm.nox) # 1, 2, 3
+
+lm.rm = lm(crim~poly(rm,3))
+summary(lm.rm) # 1, 2
+
+lm.age = lm(crim~poly(age,3))
+summary(lm.age) # 1, 2, 3
+
+lm.dis = lm(crim~poly(dis,3))
+summary(lm.dis) # 1, 2, 3
+
+lm.rad = lm(crim~poly(rad,3))
+summary(lm.rad) # 1, 2
+
+lm.tax = lm(crim~poly(tax,3))
+summary(lm.tax) # 1, 2
+
+lm.ptratio = lm(crim~poly(ptratio,3))
+summary(lm.ptratio) # 1, 2, 3
+
+lm.black = lm(crim~poly(black,3))
+summary(lm.black) # 1
+
+lm.lstat = lm(crim~poly(lstat,3))
+summary(lm.lstat) # 1, 2
+
+lm.medv = lm(crim~poly(medv,3))
+summary(lm.medv) # 1, 2, 3
