@@ -2,7 +2,7 @@
 
 Key term and ideas from the book.
 
-# Chpater 1 - Exploratory Data Analysis
+# Chapter 1 - Exploratory Data Analysis
 
 ## Data Types
 
@@ -251,7 +251,7 @@ Key term and ideas from the book.
 - Contingency tables are the standard tool for looking at the counts of two categorical variables.
 - Boxplots and violin plots allow you to plot a numeric variable against a categorical variable.
 
-# Chpater 2 - Data and Sampling Distributions
+# Chapter 2 - Data and Sampling Distributions
 
 ## T
 
