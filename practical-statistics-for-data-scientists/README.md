@@ -8,12 +8,27 @@ Key term and ideas from the book.
 
 ### Key Terms
 
-- **Numeric**: Data that is expressed on a numeric scale
-  - **Continuous**: Data that can take on any value in an interval (Synonyms: interval, float, numeric)
-  - **Discrete**: Data that can take on only integer values, such as counts. (Synonyms: integer, count)
+- **Numeric**
+
+  Data that is expressed on a numeric scale
+
+  - **Continuous**
+
+    Data that can take on any value in an interval (Synonyms: interval, float, numeric)
+
+  - **Discrete**
+
+    Data that can take on only integer values, such as counts. (Synonyms: integer, count)
+
 - **Categorical**:Data that can take on only a specific set of values representing a set of possible categories. (Synonyms: enum, enumerated, factors, nominal)
-  - **Binary**: A special case of categorical data with just two categories of values, e.g., 0/1, true/false. (Synonyms: dichotomous, logical, indicator, boolean)
-  - **Ordinal**: Categorical data that has an explicit ordering. (Synonym: ordered factor)
+
+  - **Binary**
+
+    A special case of categorical data with just two categories of values, e.g., 0/1, true/false. (Synonyms: dichotomous, logical, indicator, boolean)
+
+  - **Ordinal**
+
+    Categorical data that has an explicit ordering. (Synonym: ordered factor)
 
 ### Key Ideas
 
@@ -25,10 +40,21 @@ Key term and ideas from the book.
 
 ### Key Terms
 
-- **Data frame**: Rectangular data (like a spreadsheet) is the basic data structure for statistical and machine learning models.
-- **Feature**: A column within a table is commonly regerred to as a feature. (Synonyms: attribute, input, predictor, variable)
-- **Outcome**: Many data science projects involve predicting an outcome - often a yes/no outcome. The _features_ are sometimes used to predict the _outcome_ in an experiment or a study. (Synonyms: dependent variable, response, target, output)
-- **Records**: A row within a table is commonly referred to as a record. (Synonyms: case, example, instance obersvation pattern, sample)
+- **Data frame**
+
+  Rectangular data (like a spreadsheet) is the basic data structure for statistical and machine learning models.
+
+- **Feature**
+
+  A column within a table is commonly regerred to as a feature. (Synonyms: attribute, input, predictor, variable)
+
+- **Outcome**
+
+  Many data science projects involve predicting an outcome - often a yes/no outcome. The _features_ are sometimes used to predict the _outcome_ in an experiment or a study. (Synonyms: dependent variable, response, target, output)
+
+- **Records**
+
+  A row within a table is commonly referred to as a record. (Synonyms: case, example, instance obersvation pattern, sample)
 
 ### Key Ideas
 
@@ -39,14 +65,37 @@ Key term and ideas from the book.
 
 ### Key Terms
 
-- **Mean**: The sum of all values divided by the number of values. (Synonym: average)
-- **Weighted Mean**: The sum of all values times a weight divided by the sum of the weights. (Synonym: weighted average)
-- **Median**: The value sucht hat one-half of the data lies above and below. (Synonym: 50th percentile)
-- **Percentile**: The value such that P percent of the data lies below. (Synonym: quantile)
-- **Weighted Median**: The value such that one-half of the sum of the weights lies aboe and below the sorted data.
-- **Trimmed Mean**: The average of all values after dropping a fixed number of extreme values. (Synonym: truncated mean)
-- **Robust**: Not sensitive to extreme values. (Synonym: resistant)
-- **Outlier**: A data value that is very different from most of the data. (Synonym: extreme value)
+- **Mean**
+
+  The sum of all values divided by the number of values. (Synonym: average)
+
+- **Weighted Mean**
+
+  The sum of all values times a weight divided by the sum of the weights. (Synonym: weighted average)
+
+- **Median**
+
+  The value sucht hat one-half of the data lies above and below. (Synonym: 50th percentile)
+
+- **Percentile**
+
+  The value such that P percent of the data lies below. (Synonym: quantile)
+
+- **Weighted Median**
+
+  The value such that one-half of the sum of the weights lies aboe and below the sorted data.
+
+- **Trimmed Mean**
+
+  The average of all values after dropping a fixed number of extreme values. (Synonym: truncated mean)
+
+- **Robust**
+
+  Not sensitive to extreme values. (Synonym: resistant)
+
+- **Outlier**
+
+  A data value that is very different from most of the data. (Synonym: extreme value)
 
 ### Key Ideas
 
@@ -57,15 +106,41 @@ Key term and ideas from the book.
 
 ### Key Terms
 
-- **Deviations**: The difference between the observed values and the estimate of location. (Synonyms: errors, residuals)
-- **Variance**: The sum of squared deviations from the mean divided by _n-1_ where _n_ is the number of data values. (Synonym: mean-squared error)
-- **Standard Deviation**: The square root of the variance.
-- **Mean Absolute Deviation**: The mean of the absolute values of the deviations from the mean. (Synonyms: l1-norm, Manhattan norm)
-- **Median Absolute deviation from the median**: The median of the absolute values of the deviations from the median.
-- **Range**: The difference between the largest and the smallest values in the data set.
-- **Order Statistics**: Metrics based on the data values sorted from smallest to biggest. (Synonym: rank)
-- **Percentile**: The value such that P percent of the values take on this value or less and (100-P) percent take on this value or more. (Synonym: quantile)
-- **Interquartile Range**: The difference between the 75th percentile and the 25th percentile. (Synonym: IQR)
+- **Deviations**
+
+  The difference between the observed values and the estimate of location. (Synonyms: errors, residuals)
+
+- **Variance**
+
+  The sum of squared deviations from the mean divided by _n-1_ where _n_ is the number of data values. (Synonym: mean-squared error)
+
+- **Standard Deviation**
+
+  The square root of the variance.
+
+- **Mean Absolute Deviation**
+
+  The mean of the absolute values of the deviations from the mean. (Synonyms: l1-norm, Manhattan norm)
+
+- **Median Absolute deviation from the median**
+
+  The median of the absolute values of the deviations from the median.
+
+- **Range**
+
+  The difference between the largest and the smallest values in the data set.
+
+- **Order Statistics**
+
+  Metrics based on the data values sorted from smallest to biggest. (Synonym: rank)
+
+- **Percentile**
+
+  The value such that P percent of the values take on this value or less and (100-P) percent take on this value or more. (Synonym: quantile)
+
+- **Interquartile Range**
+
+  The difference between the 75th percentile and the 25th percentile. (Synonym: IQR)
 
 ### Key Ideas
 
@@ -77,10 +152,21 @@ Key term and ideas from the book.
 
 ### Key Terms
 
-- **Boxplot**: A plot introduced by Turkey as a quick way to visualize the distribution of data. (Synonym: box and whiskers plot)
-- **Frequency Table**: A tally of the count of numeric data values that fall into a set of intervals (bins)
-- **Histogram**: A plot of the frequency table with the bins on the x-axis and the count (or proportion) on the y-axis. While visually similar, bar charts should not be confused with histograms.
-- **Density plot**: A smoothed version of the histogram, often based on a _kernel density estimate_.
+- **Boxplot**
+
+  A plot introduced by Turkey as a quick way to visualize the distribution of data. (Synonym: box and whiskers plot)
+
+- **Frequency Table**
+
+  A tally of the count of numeric data values that fall into a set of intervals (bins)
+
+- **Histogram**
+
+  A plot of the frequency table with the bins on the x-axis and the count (or proportion) on the y-axis. While visually similar, bar charts should not be confused with histograms.
+
+- **Density plot**
+
+  A smoothed version of the histogram, often based on a _kernel density estimate_.
 
 ### Key Ideas
 
@@ -93,10 +179,21 @@ Key term and ideas from the book.
 
 ### Key Terms
 
-- **Mode**: The most commonly occuring category or value in a data set.
-- **Expected value**: When the categories can be associated with a numeric value, this gives an average value based on a category's probability of occurence.
-- **Bar Charts**: The frequency or proportion for each category plotted as bars.
-- **Pie Charts**: The frequency or proportion for each category plotted as wedges in a pie.
+- **Mode**
+
+  The most commonly occuring category or value in a data set.
+
+- **Expected value**
+
+  When the categories can be associated with a numeric value, this gives an average value based on a category's probability of occurence.
+
+- **Bar Charts**
+
+  The frequency or proportion for each category plotted as bars.
+
+- **Pie Charts**
+
+  The frequency or proportion for each category plotted as wedges in a pie.
 
 ### Key Ideas
 
@@ -108,9 +205,17 @@ Key term and ideas from the book.
 
 ### Key Terms
 
-- **Correlation Coefficient**: A metric that measures the extent to which numeric variables are associated with one another (ranges from -1 to +1).
-- **Correlation Matrix**: A table where the variables are shown on both rows and columns, and the cell values are the correlations between variables.
-- **Scatterplot**: A plot in which the x-axis is the value of one variable, and the y-axis the value of another.
+- **Correlation Coefficient**
+
+  A metric that measures the extent to which numeric variables are associated with one another (ranges from -1 to +1).
+
+- **Correlation Matrix**
+
+  A table where the variables are shown on both rows and columns, and the cell values are the correlations between variables.
+
+- **Scatterplot**
+
+  A plot in which the x-axis is the value of one variable, and the y-axis the value of another.
 
 ### Key Ideas
 
@@ -124,10 +229,21 @@ Key term and ideas from the book.
 
 ### Key Terms
 
-- **Contingency Table**: A tally of counts between two eor more categorical variables.
-- **Hexagonal Binning**: A plot of two numeric variables with the records binned into hexagons.
-- **Contour Plot**: A plot showing the density of two numeric variables like a topographical map.
-- **Violin Plot**: Similar to a boxplot but showing the density estimate.
+- **Contingency Table**
+
+  A tally of counts between two eor more categorical variables.
+
+- **Hexagonal Binning**
+
+  A plot of two numeric variables with the records binned into hexagons.
+
+- **Contour Plot**
+
+  A plot showing the density of two numeric variables like a topographical map.
+
+- **Violin Plot**
+
+  Similar to a boxplot but showing the density estimate.
 
 ### Key Ideas
 
