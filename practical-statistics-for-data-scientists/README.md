@@ -20,7 +20,9 @@ Key term and ideas from the book.
 
     Data that can take on only integer values, such as counts. (Synonyms: integer, count)
 
-- **Categorical**:Data that can take on only a specific set of values representing a set of possible categories. (Synonyms: enum, enumerated, factors, nominal)
+- **Categorical**
+
+  Data that can take on only a specific set of values representing a set of possible categories. (Synonyms: enum, enumerated, factors, nominal)
 
   - **Binary**
 
@@ -253,11 +255,284 @@ Key term and ideas from the book.
 
 # Chapter 2 - Data and Sampling Distributions
 
-## T
+## Random Sampling
 
 ### Key Terms
 
--
+- **Sample**
+
+  - A subset from a larger data set.
+
+- **Population**
+
+  - The larger data set or idea of a data set.
+
+- **N (n)**
+
+  - The size of the population (sample).
+
+- **Random Sampling**
+
+  - Drawing elements into a sample at random.
+
+- **Stratified Sampling**
+
+  - Dividing the population into strata and randomly sampling from each strata.
+
+- **Stratum (pl., strata)**
+
+  - A homogeneous subgroup of a population with common characteristics.
+
+- **Simple Random Sample**
+
+  - The sample that results from random sampling without stratifying the population.
+
+- **Bias**
+
+  - Systematic error.
+
+- **Sample Bias**
+
+  - A sample that misrepresents the population.
+
+### Key Ideas
+
+- Even in the era of big data, random sampling remains an important arrow in the data scientist's quiver.
+- Bias occurs when measurements or observations are systematically in error because they are not representative of the full population.
+- Data quality is often more important than data quantity, and random sampling can reduce bias and facilitate quality improvements that would otherwise be prohibitively expensive.
+
+## Selection Bias
+
+### Key Terms
+
+- **Selection Bias**
+
+  - Bias resulting from the way in which observations are selected.
+
+- **Data Snooping**
+
+  - Extensive hunting through data in search of something interesting.
+
+- **Vast search effect**
+
+  - Bias or nonreproducibility resulting from repeated data modeling, or modeling data with large numbers of predictor variables.
+
+### Key Ideas
+
+- Specifying a hypothesis and then collecting data following randomization and random sampling principles ensures against bias.
+- All other forms of data analysis run the risk of bias resulting from the data collection/analysis process (repeated running of models in data mining, data snooping in research, and after-the-fact selection of interesting events).
+
+## Sampling Distribution
+
+### Key Terms
+
+- **Sample Statistic**
+
+  - A metric calculated for a sample of data drawn from a larger population.
+
+- **Data Distribution**
+
+  - The frequency distribution of individual values in a data set.
+
+- **Sampling Distribution**
+
+  - The frequency distribution of a sample statistic over many samples or resamples.
+
+- **Central Limit Theorem**
+
+  - The tendency of the sampling distribution to take on a normal shape as a sample size rises.
+
+- **Standard Error**
+
+  - The variability (standard deviation) of a sample _statistic_ over many values (not to be confused wuth _standard deviation_, which by itself, refers to variability of individual data _values_).
+
+### Key Ideas
+
+- The frequency distribution of a sample statistic tells us how that metric would turn out differently from sample to sample.
+- This sampling distribution can be estimated via the bootstrap, or via formulas that rely on the central limit theorem.
+- A key metric that sums up the variability of a sample statistic is its standard error.
+
+## The Bootstrap
+
+### Key Terms
+
+- **Bootstrap Sample**
+
+  - A sample taken with replacement from an observed data set.
+
+- **Resampling**
+
+  - The process of taking repeated samples from observed data; includes both bootstrap and permutation (shuffling) procedures.
+
+### Key Ideas
+
+- The bootstrap (sampling with replacement from a data set) is a powerful tool for assessing the variability of a sample statistic.
+- The bootstrap can be applied in similar fashion in a wide variety of circumstances, without extensive study of mathematical approxumations to sampling distributions.
+- It also allows us to estimate sampling distributions for statistics where no mathematical approximation has been developed.
+- When applied to predictive models, aggregating multiple bootstrap sample predictions (bagging) outperforms the use of a single model.
+
+## Confidence Intervals
+
+### Key Terms
+
+- **Confidence Level**
+
+  - The percentage of confidence intervals, constructed in the same way from the same population, that are expected to contain the statistic of interest.
+
+- **Interval Endpoints**
+
+  - The top and bottom of the confidence interval.
+
+### Key Ideas
+
+- Confidence intervals are the typical way to present estimates as an interval range.
+- The more data you have, the less variable a sample estimate will be.
+- The lower the level of confidence you can tolerate, the narrower the confidence interval will be.
+- The bootstrap is an effective way to construct confidence intervals.
+
+## Normal Distribution
+
+### Key Terms
+
+- **Error**
+
+  - The difference between a data point and a predicted or average value.
+
+- **Standardize**
+
+  - Subtract the mean and divide by the standard deviation.
+
+- **z-score**
+
+  - The result of standardizing an individual data point.
+
+- **Standard normal**
+
+  - A normal distribution with mean = 0 and standard deviation = 1.
+
+- **QQ-Plot**
+
+  - A plot to visualize how close a sample distribution is to a specified distribution. e.g. normal distribution.
+
+### Key Ideas
+
+- The normal distribution was essential to the historical development of statistics, as it permitted mathematical approximations of uncertainty and variability.
+- While raw data is typically not normally distributed, errors often are, as are averages and totals in large samples.
+- To convert data to _z-scores_, you subtract the mean of the data and divide by the standard deviation; you can then compare the data to a normal distribution.
+
+## Long-Tailed Distribution
+
+### Key Terms
+
+- **Tail**
+
+  - The long narrow portion of a frequency distribution, where relatively extreme values occure at low frequency.
+
+- **Skew**
+
+  - Where one tail of a distribution is longer than the other.
+
+### Key Ideas
+
+- Most data is not normally distributed.
+- Assuming a normal distribution can lead to underestimates of extreme events ("black swans").
+
+## Students t-Distribution
+
+### Key Terms
+
+- **n**
+
+  - Sample size.
+
+- **Degrees of Freedom**
+
+  - A parameter that allows the t-distribution to adjust to different sample sizes, statistics, and numbers of groups.
+
+### Key Ideas
+
+- The t-distribution is actually a family of distributions resembling the normal distribution but with thicker tails.
+- The t-distribution is widely used as a reference basis for the distribution of sample means, differences between two sample means, regression parameters, and more.
+
+## Binomial Distribution
+
+### Key Terms
+
+- **Trial**
+
+  - An event with a discrete outcome (e.g. a coin flip).
+
+- **Success**
+
+  - The outcome of interest for a trial. (Synonym: "1" as opposed to "0")
+
+- **Binomial**
+
+  - Having two outcomes.
+
+- **Binomial Trial**
+
+  - A trial with two outcomes. (Synonym: Bernoulli trial)
+
+- **Binomial Distribution**
+
+  - Distribution of number of successes in _x_ trials. (Synonym: Bernoulli distribution).
+
+### Key Ideas
+
+- Binamial outcomes are important to model, since they represent, among other things, fundamental decisions (buy or don't buy, click or don't click, survive or die, etc.).
+- A binomial trial is an experiment with two possible outcomes: one with probability _p_ and the other with probability _1 - p_.
+- With large _n_, and provided _p_ is not too close to 0 or 1, the binomial distribution can be approximated by the normal distribution.
+
+## Chi-Square Distribution
+
+### Key Ideas
+
+- The chi-square distribution is typically concerned with counts of subjects or items falling into categories.
+- The chi-square statistic measures the extent of departure from what you would expect in a null model.
+
+## F-Distribution
+
+### Key Ideas
+
+- The F-distribution is used with experiments and linear models involving measured data.
+- The F-statistic compares variation due to factors of interest to overall variation.
+
+## Poisson and Related Distributions
+
+### Key Terms
+
+- **Lambda**
+
+  - The rate (per unit of time or space) at which events occur.
+
+- **Poisson Distribution**
+
+  - The frequency distribution of the number of events in sampled units of time or space.
+
+- **Exponential Distribution**
+
+  - The frequency distribution of the time or distance from one event to the next event.
+
+- **Weibull Distribution**
+
+  - A generalized version of the exponential distribution in which the event rate is allowed to shift over time.
+
+### Key Ideas
+
+- For events that occur at a constant rate, the number of events per unit time or space can be modeled as a Poisson distribution.
+- You can also model the time or distance between one event and the next as an exponential distribution.
+- A changing event rate over time (e.g., an increasing probability of device failure) can be modeled with the Weibull distribution.
+
+# Chapter 3 - Statistical Experiments and Significance Testing
+
+## A/B Testiing
+
+### Key Terms
+
+- **TT**
+
+  -
 
 ### Key Ideas
 
@@ -267,7 +542,9 @@ Key term and ideas from the book.
 
 ### Key Terms
 
--
+- **TT**
+
+  -
 
 ### Key Ideas
 
