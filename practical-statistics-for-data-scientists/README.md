@@ -802,6 +802,128 @@ Key term and ideas from the book.
 
 ### Key Terms
 
+- **Response**
+
+  - The variable we are trying to predict. (Synonys: dependent variable, Y variable, target, outcome)
+
+- **Independent Variable**
+
+  - The variable used to predict the response. (Synonyms: X variable, feature, attribute, predictor)
+
+- **Record**
+
+  - The vector of predictor and outcome values for a specific individual or case. (Synonym: row, case, instance, example)
+
+- **Intercept**
+
+  - The intercept of the regression line - that is, the predicted value when X = 0.
+
+- **Regression coefficient**
+
+  - The slope of the regression line. (Synonyms: Parameter estimates, weights)
+
+- **Fitted Values**
+
+  - The estimates obtained from the regression line. (Synonym: predicted values)
+
+- **Residuals**
+
+  - The difference between the observed values and the fitted values. (Synonym: errors)
+
+- **Least Squares**
+
+  - The method of fitting a regression by minimizing the sum of squared residuals. (Synonyms: ordinary least squares, OLS)
+
+### Key Ideas
+
+- The regression equation models the relationship between a response variable Y and a predictor variable X as a line.
+- A regression model yields fitted values and residuals - predictions of the response and the errors of the predictions.
+- Regression models are typically fit by the method of least squares.
+- Regression is used both for prediction and explanation.
+
+## Multiple Linear Regression
+
+### Key Terms
+
+- **Root mean square error**
+
+  - The square root of the average squared error of the regression (this is the most widely used metric to compare regression models). (Synonym: RMSE)
+
+- **Residual standard error**
+
+  - The same as the root mean squared error, but adjusted for degrees of freedom. (Synonym: RSE)
+
+- **R-squared**
+
+  - The proportion of variance explained by the model, from 0 to 1. (Synonym: coefficient of determination)
+
+- **t-statistic**
+
+  - The coefficient for a predictor, divided by the standard error of the coefficient, giving a metric to compare the importance of variables in the model.
+
+- **Weighted regression**
+
+  - Regression with the records having different weights.
+
+### Key Ideas
+
+- Multiple linear regression models the relationship between a response variable Y and multiple predictor variables X1 ... Xp.
+- The most important metrics to evaluate a model are root mean squared error (RMSE) and R-squared (R^2).
+- The standard error of the coefficients can be used to measure the reliability of a variable's contribution to a model.
+- Stepwise regression is a way to automatically determine which variables should be included in the model.
+- Weighted regression is used to give certain records more or less weight in fitting the equation.
+
+## Prediction Using Regression
+
+### Key Terms
+
+- **Prediction Interval**
+
+  - An uncertainty interval around an individual predicted value.
+
+- **Extrapolation**
+
+  - Extension of a model beyond the range of the data used to fit it.
+
+### Key Ideas
+
+- Extrapolation beyond the range of the data can lead to error.
+- Confidence intervals quantify uncertainty around regression coefficients.
+- Prediction intervals quantify uncertainty in individual predictions.
+- Most software, R included, will produce prediction and confidence intervals in default or specified output, using formulas.
+- The bootstrap can also be used to produce prediction and confidence intervals; the interpretation and idea are the same.
+
+## Factor Variables
+
+### Key Terms
+
+- **Dummy Variables**
+
+  - Binary 0-1 variables derived by recording factor data for use in regression and other models.
+
+- **Reference coding**
+
+  - The most common type of coding used by statisticians, in which one level of a factor is used as a reference and other factors are compared to that level. (Synonym: treatment coding)
+
+- **One hot encoder**
+
+  - A common type of coding used in the machine learning community in which all factor levels are retained. While useful for certain machine learning algorithms, this approach is not appropriate for multiple linear regression.
+
+- **Deviation coding**
+
+  - A type of coding that compares each level against the overall mean as opposed to the reference level. (Synonym: sum contrast)
+
+### Key Ideas
+
+- Factor variables need to be converted into numeric variables for us in a regression.
+- The most common method to encode a factor variable with P distinct values is to represent them using P - 1 dummy variables.
+- A factor variable with many levels, even in very big data sets, may need to be consolidated into a variable with fewer levels.
+- Some factors have levels that are ordered and can be represented as a single numeric variable.
+
+## Interpreting the Regression Equation
+
+### Key Terms
+
 - **TT**
 
   -
