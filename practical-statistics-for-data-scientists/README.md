@@ -530,6 +530,278 @@ Key term and ideas from the book.
 
 ### Key Terms
 
+- **Treatment**
+
+  - Something (drug, price, web headline) to which a subject is exposed.
+
+- **Treatment Group**
+
+  - A group of subjects exposed to a specific treatment.
+
+- **Control Group**
+
+  - A group of subjects exposed to no (or standard) treatment.
+
+- **Randomization**
+
+  - The process of randomly assigning subjects to treatment.
+
+- **Subjects**
+
+  - The items (web visitors, patients, etc.) that are exposed to treatment.
+
+- **Test Statistics**
+
+  - The metric used to measure the effect of the treatment.
+
+### Key Ideas
+
+- Subjects are assigned to two (or more) groups that are treated exactly alike, except that the treatment under study differs from one group to another.
+- Ideally, subjects are assigned randomly to the groups.
+
+## Hypothesis Tests
+
+### Key Terms
+
+- **Null hypothesis**
+
+  - The hypothesis that chance is to blame.
+
+- **Alternative hypothesis**
+
+  - Counterpoint to the null (what you hope to prove).
+
+- **One-way test**
+
+  - Hypothesis test that counts chance results only in one direction.
+
+- **Two-way test**
+
+  - Hypothesis test that counts chance results in two directions.
+
+### Key Ideas
+
+- A null hypothesis is a logical contruct embodying the notion that nothing special gas gappened, and any effect you observe is due to random chance.
+- The hypothesis test assumes that the null hypothesis is true, creates a "null model" (a probability model), and tests whether the effect you observe is a reasonable outcome of that model.
+
+## Resampling
+
+### Key Terms
+
+- **Permutation Test**
+
+  - The procedure of combining two or more samples together and randomly (or exhaustively) reallocating the observations to resamples. (Synonyms: Randomization test, random permutation test, exact test).
+
+- **Resampling**
+
+  - Drawing additionsl samples ("resamples") from an observed data set.
+
+- **With or without replacement**
+
+  - In sampling, whether or not an item is returned to the sample before the next draw.
+
+### Key Ideas
+
+- In a permutation test, multiple samples are combined and then shuffled.
+- The shuffled values are then divided into resamples, and the statistic of interest is calculated.
+- This process is then repeated, and the resampled statistic is tabulated.
+- Comparing the observed value of the statistic to the resampled distribution allows you to judge whether an observed difference between samples might occur by chance.
+
+## Statistical Significant and p-Values
+
+### Key Terms
+
+- **p-value**
+
+  - Given a chance model that embodies the null hypothesis, the p-value is the probability of obtaining results as unusual or extreme as the observed results.
+
+- **Alpha**
+
+  - The probability threshold of "unusualness" that chance results must surpass for actual outcomes to be deemed statistically significant.
+
+- **Type 1 error**
+
+  - Mistakenly concluding an effect is real (when it is due to chance).
+
+- **Type 2 error**
+
+  - Mistakenly concluding an effect is due to chance (when it is real).
+
+### Key Ideas
+
+- Significant tests are used to determine whether an observed effect is within the range of chance variation for a null hypothesis.
+- The p-value is the probability that results as extreme as the observed results might occur, given a null hypothesis model.
+- The alpha value is the threshold of "unusualness" in a null hypothesis chance model.
+- Significance testing has been much more relevant for formal reporting of research than for data science (but has been fading recently, even for the former).
+
+## t-Tests
+
+### Key Terms
+
+- **Test statistic**
+
+  - A metric for the difference or effect of interest.
+
+- **t-statistic**
+
+  - A standardized version of common test statistic such as means.
+
+- **t-distribution**
+
+  - A reference distribution (in this case derived from the null hypothesis), to which the observed t-statistic can be compared.
+
+### Key Ideas
+
+- Before the advent of computers, resampling tests were not practical, and statisticians used standard reference distributions.
+- A test statistic could then be standardized and compared to the reference distribution.
+- One such widely used standardized statistic is the t-statistic.
+
+## Multiple Testing
+
+### Key Terms
+
+- **Type 1 error**
+
+  - Mistakenly concluding that an effect is statistically significant.
+
+- **False recovery rate**
+
+  - Across multiple tests, the rate of making a Type 1 error.
+
+- **Alpha inflation**
+
+  - The multiple testing phenomenon, in whic alpha, the probability of making a Type 1 error, increases as you conduct more tests.
+
+- **Adjustment of p-values**
+
+  - Accounting for doing multiple tests on the same data.
+
+- **Overfitting**
+
+  - Fitting the noise.
+
+### Key Ideas
+
+- Multiplicity in a research study or data mining project (multiple comparisons, many variables, many models, etc.) increase the risk of concluding that something is significant just by chance.
+- For situations involving multiple statistical comparisons (i.e. multiple tests of significant), there are statistical adjustment procedures.
+- In a data mining situation, use of a holdout sample with labeled outcome variables can help avoid misleading results.
+
+## Degrees of Freedom
+
+### Key Terms
+
+- **n or sample size**
+
+  - The number of observations (also called rows or records) in the data.
+
+- **d.f.**
+
+  - Degrees of freedom.
+
+### Key Ideas
+
+- The number of degrees of freedom (d.f.) forms part of the calculation to standardize test statistics so they can be compared to reference distributions (t-distributions, F-distributions, etc.).
+- The conecpt of degrees of freedom lies behind factoring of categorical variables into n - 1 indicator or dummy variables when doing a regression (to avoid multicollinearity).
+
+## ANOVA (Analysis of Variance)
+
+### Key Terms
+
+- **Pairwise comparison**
+
+  - A hypothesis test (e.g. of means) between two groups among multiple groups.
+
+- **Omnibus test**
+
+  - A single hypothesis test of the overall variance among multiple group means.
+
+- **Decomposition of variance**
+
+  - Separation of components contributing to an individual value (e.g. from the overall average, from a treatment mean, and from a residual error).
+
+- **F-statistic**
+
+  - A standardized statistic that measures the extent to which differences among group means exceed what might be expected in a chance model.
+
+- **SS**
+
+  - "Sum of squares", referring to deviations from some average value.
+
+### Key Ideas
+
+- ANOVA is a statistical procedure for analysing the results of an experiment with multiple groups.
+- It is the extension of similar procedures for the A/B test, used to assess whether the overall variation among groups is within the range of chance variation.
+- A useful outcome of ANOVA is the identification of variance components associated with group treatments, interaction effects, and errors
+
+## Chi-Square test
+
+### Key Terms
+
+- **Chi-square statistic**
+
+  - A measure of the exten to which some observed data departs from expectation.
+
+- **Expectation or expected**
+
+  - How we would expect the data to turn out under some assumption, typically the null hypothesis.
+
+### Key Ideas
+
+- A common procedure in statistics is to test whether observed data counts are consistent with an assumption of independence (e.g., propensity to buy a particular item is independent of gender).
+- The chi-square distribution is the reference distribution (which embodies the assumption of independence) to which the observed calculate chi-square statistic must be compared.
+
+## Multi-Arm Bandits
+
+### Key Terms
+
+- **Multi-arm bandit**
+
+  - An imaginary slot machine with multiple arms for the customer to choose from, each with different payoffs, here taken to be an analogy for a multitreatment experiment.
+
+- **Arm**
+
+  - A treatment in an experiment (e.g., "headline A in a web test").
+
+- **Win**
+
+  - The experimental analog of a win at the slot machine (e.g., "customer clicks on the link").
+
+### Key Ideas
+
+- Traditional A/B tests envision a random sampling process, which can lead to excessive exposure to the inferior treatment.
+- Multi-arm bandits, in contrast, alter the sampling process to incorporate information learned during the experiment and reduce the frequency of the inferior treatment.
+- They also facilitate efficient treatment of more than two treatments.
+- There are different algorithms for shifting sampling probability away from the inferior treatment(s) and to the p(presumed) superior one.
+
+## Power and Sample Size
+
+### Key Terms
+
+- **Effect Size**
+
+  - The minimum size of the effect that you hope to be able to detect in a statistical test, such as "20% improvement in click rates".
+
+- **Power**
+
+  - The probability of detecting a given effect size with a given sample size.
+
+- **Significance level**
+
+  - The statistical significance level at which the test will be conducted.
+
+### Key Ideas
+
+- Finding out how big a sample size you need requires thinking ahead to the statistical test you plan to conduct.
+- You must specify the minimum size of the effect that you want to detect.
+- You must also specify the required probability of detecting that effect size (power).
+- Finally, you must specify the significance level (alpha) at which the test will be conducted.
+
+# Chapter 4 - Regression and Prediction
+
+## Simple Linear Regression
+
+### Key Terms
+
 - **TT**
 
   -
