@@ -1022,6 +1022,290 @@ Key term and ideas from the book.
 
 # Chapter 5 - Classification
 
+## Naive Bayes
+
+### Key Terms
+
+- **Conditional Probability**
+
+  - The probability of observing some event (say, x = i) given some other event (say, Y = i), written as P(X<sub>i</sub>|Y<sub>i</sub>)
+
+- **Posterior Probability**
+
+  - The probability of an outcome after the predictor information has been incorporated (in contrast to the _prior probability_ of outcomes, not taking predictor information into account).
+
+### Key Ideas
+
+- Naive Bayes works with categorical (factor) predictors and outcomes.
+- It asks, "Within each outcome category, which predictor categories are most probable?"
+- That information is then inverted to estimate probabilities of outcome categories, given predictor values.
+
+## Discriminant Analysis
+
+### Key Terms
+
+- **Covariance**
+
+  - A measure of the extent to which one variable varies in concert with another (i.e., similar magnitude and direction).
+
+- **Discriminant function**
+
+  - The function that, when applied to the predictor variables, maximizes the separation of the classes.
+
+- **Discriminant weights**
+
+  - The scores that result from the applications of the discriminant function and are used to estimate probabilities belonging to one class or another.
+
+### Key Ideas
+
+- Discriminant analysis works with continuous or categorical predictors, as well as with categorical outcomes.
+- Using the covariance matrix, it calculates a _linear discriminant function_, which is used to distinguish records belonging to one class from those belonging to another.
+- This function is applied to the records to derive weights, or scores, for each record (one weight for each possible class), which determines its estimated class.
+
+## Logistic Regression
+
+### Key Terms
+
+- **Logit**
+
+  - The function that maps class membership probability to a range from plus/minus infinity (instead of 0 to 1).
+
+- **Odds**
+
+  - The ration of "success" (1) to "not success" (0).
+
+- **Log odds**
+
+  - The response in the transformed model (now linear), which gets mapped back to a probability.
+
+### Key Ideas
+
+- Logistic regression is like linear regression, except that the outcomes ia a binary variable.
+- Several transformations are needed to get the model into a form that can be fit as a linear model, with the log of the odds ration as the response variable.
+- After the linear model is fit (by an iterative process), the log odds is mapped back to a probability.
+- Logistic regression is popular because it is computationally fast and produces a model that can be scored to new data with only a few arithmetic operations.
+
+## Evaluating Classification Models
+
+### Key Terms
+
+- **Accuracy**
+
+  - The percent (or proportion) of cases classified correctly.
+
+- **Confusion Matrix**
+
+  - A tabular display (2x2 in the binary case) of the record counts by their predicted and actual classification status.
+
+- **Sensitivity**
+
+  - The percent (or proportion) of all 1s that are correctly classified as 1s. (Synonym: Recall)
+
+- **Specificity**
+
+  - The percent (or proportion) of all 0s that are correctly classified as 0s.
+
+- **Precision**
+
+  - The percent (proportion) of predicted 1s that are actually 1s.
+
+- **ROC Curve**
+
+  - A plot of sensitivity versus specificity.
+
+- **Lift**
+
+  - A measure of how effective the model is at identifying (comparatively rare) 1s at different probability cutoffs.
+
+### Key Ideas
+
+- Accuracy (the percent of predicted classifications that are correct) is but a first step in evaluating a model.
+- Other metrics (recall, specificity, precision) focus on more specific performance characteristics (e.g., recall measures how good a model is at correctly identifying 1s).
+- AUC (area under the ROC curve) is a common metric for the ability of a model to distinguish 1s from 0s.
+- Similarly, lift measures how effective a model is in identifying the 1s, and it is often calculated decile by decile, starting with the most probable 1s.
+
+## Imbalanced Data
+
+### Key Terms
+
+- **Undersample**
+
+  - Use fewer of the prevalent class records in the classification model. (Synonym: Downsample)
+
+- **Oversample**
+
+  - Use more of the rare class recprds in the classification model, bootstrapping if necessary. (Synonym: Upsample)
+
+- **Up weight or down weight**
+
+  - Attach more (or less) weight to the rare (or prevalent) class in the model.
+
+- **Data generation**
+
+  - Like bootstrapping, except each new bootstrapped record is slightly different from its source.
+
+- **z-score**
+
+  - The value that results after standardization.
+
+- **K**
+
+  - The number of neighbors considered in the nearest neighbor calculation.
+
+### Key Ideas
+
+- Highly imbalanced data (i.e., where the interesting outcomes, the 1s, are rare) are problematic for classification algorithms.
+- One strategy for working with imbalanced data is to balance the training data via undersampling the abundant case (or oversampling the rare case).
+- If using all the 1s still leaves you with too few 1s, you can bootstrap the rare cases, or use SMOTE to create synthetic data similar to existing rare cases.
+- Imbalanced data usually indicates that correctly classifying one class (the 1s) has higher value, and that value ration should be built into the assessment metric.
+
+# Chapter 6 - Statistical Machine Learning
+
+## K-Nearest Neighbors
+
+### Key Terms
+
+- **Neighbor**
+
+  - A record that has similar predictor values to another record.
+
+- **Distance Metrics**
+
+  - Measures that sum up in a single number how far one record is from another.
+
+- **Standardization**
+
+  - Subtract the mean and divide by the standard deviation. (Synonym: Normalization)
+
+- **z-score**
+
+  - The value that results after standardization.
+
+- **K**
+
+  - The number of neighbors considered in the nearest neighbor calculation.
+
+### Key Ideas
+
+- K-Nearest Neighbors (KNN) classifies a record by assigning it to the class that similar records belong to.
+- Similarity (distance) is determined by Euclidian distance or other related metrics.
+- The number of nearest neighbors to compare a record to, K, is determined by how well the algorithm performs on training data, using different values for K.
+- Typically, the predictor variables are standardized so that variables of large scale do not dominate the distance metric.
+- KNN is often used as a first stage in predictive modeling, and the _predictor_ value is added back into the data as a predictor for second-stage (non-KNN) modeling
+
+## Trees
+
+### Key Terms
+
+- **Recursive partitioning**
+
+  - Repeatedly dividing and subdividing the data with the goal of making the outcomes in each final subdivision as homogeneous as possible.
+
+- **Split value**
+
+  - A predictor value that divides the records into those where that predictor is less than the split value, and those where it is more.
+
+- **Node**
+
+  - In the decision tree, or in the set of corresponding branching rules, a node is the graphical or rule representation of a split value.
+
+- **Leaf**
+
+  - The end of a set of if-then rules, or branches of a tree - the rules that bring you to that leaf provide one of the classification rules for any record in a tree.
+
+- **Loss**
+
+  - The number of misclassifications at a stage in the splitting process; the more losses, the more impurity.
+
+- **Impurity**
+
+  - The extent to which a mix of classes is found in a subpartition of the data (the more mixed, the more impure). (Synonym: Heterogeneity) (Antonyms: Homogeneity, purity)
+
+- **Pruning**
+
+  - The process of taking a fully grown tree and progressively cutting its branches back to reduce overfitting.
+
+### Key Ideas
+
+- Decision trees produce a set of rules to classify or predict an outcome.
+- The rules correspond to successive partitioning of the data into subpartitions.
+- Each partition, or split, references a specific value of a predictor variable and divides the data into records where that predictor value is above or below that split value.
+- At each stage, the tree algorithm chooses the split that minimizes the outcome impurity within each subpartition.
+- When no further splits can be made, the tree is fully grown and each terminal node, or leaf, has records of a single class; new cases folling that rule (split) path would be assigned that class.
+- A fully grown tree overfits data and must be pruned back so that it captures signal and not noise.
+- Multiple-tree algorithms like random forests and boosted trees yield better predictive performance, but they lose the rule-based communicative power of single trees
+
+## Bagging and the Random Forst
+
+### Key Terms
+
+- **Ensemble**
+
+  - Forming a prediction by using a collection of models. (Synonym: Model averaging)
+
+- **Bagging**
+
+  - A general technique to form a collection of models by bootstrapping the data. (Synonym: Bootstrap aggregation)
+
+- **Random Forest**
+
+  - A type of bagged estimate based on decision tree models. (Synonym: Bagged decision trees)
+
+- **Variable Importance**
+
+  - A measure of the importance of a precitor variable in the performance of the model.
+
+### Key Ideas
+
+- Ensemble models improve model accuracy by combining the results from many models.
+- Bagging is a particular type of ensemble model based on fitting many models to bootstrapped samples of the data and averaging the models.
+- Random forest is a special type of bagging applied to decision trees. In addition to resampling the data, the random forest algorithm samples the predictor variables when splitting the trees.
+- A useful output from the random forest is a measure of variable importance that ranks the predictors in terms of their contribution to model accuracy.
+- The random forest has a set of hyperparameters that should be tuned using cross-validation to avoid overfitting.
+
+## Boosting
+
+### Key Terms
+
+- **Ensemble**
+
+  - Forming a prediction by using a collection of models. (Synonym: Model averaging)
+
+- **Boosting**
+
+  - A general technique to fit a sequence of models by giving more weight to the records with large residuals for each successive round.
+
+- **Adaboost**
+
+  - An early version of boosting that reqeights the data based on the residuals.
+
+- **Gradient Boosting**
+
+  - A more general form of boosting that is cast in terms of minimizing a cost function.
+
+- **Stochastic Gradient Boosting**
+
+  - The most general algorithm for boosting that incorporates resampling of records and columns in each round.
+
+- **Regularization**
+
+  - A technique to avoid overfitting by adding a penalty term to the cost function on the number of parameters in the model.
+
+- **Hyperparameters**
+
+  - Parameters that need to be set before fitting the algorithm.
+
+### Key Ideas
+
+- Boosting is a class of ensemble models based on fitting a sequence of models, with more weight given to records with large errors in successive rounds.
+- Stochastic gradient boosting is the most general type of boosting and offers the best performance. The most common form of stochastic gradient boosting uses tree models.
+- XGBoost is a popular and computationally efficient software package for stochastic gradient boosting: it is available is all commong languages used in data science.
+- Boosting is prone to overfitting the data, and the hyperparameters need to be tuned to avoid this.
+- Regularization is one way to avoid overfitting by including a penalty term on the number of parameters (e.g., tree size) in a model.
+- Cross-validation is especially important for boosting due to the large number of hyperparameters that need to be set.
+
+# Chapter 7 - Unsupervised Learning
+
 ## T
 
 ### Key Terms
