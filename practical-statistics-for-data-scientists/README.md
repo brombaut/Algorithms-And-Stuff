@@ -1306,14 +1306,101 @@ Key term and ideas from the book.
 
 # Chapter 7 - Unsupervised Learning
 
-## T
+## Principal Component Analysis
 
 ### Key Terms
 
-- **TT**
+- **Principal Component**
 
-  -
+  - A linear combination of the predictor variables.
+
+- **Loadings**
+
+  - The weights that transform the predictors into the components. (Synonym: Weights)
+
+- **Screeplot**
+
+  - A plot of the variances of the components, showing the relative importance of the components, either as explained variance or as proportion of explained variance.
 
 ### Key Ideas
 
--
+- Principal components are linear combinations of the predictor variables (numeric data only).
+- Principal components are calculated so as to minimize correlation between components, reducing redundancy.
+- A limited number of components will typically explain most of the variance in the outcome variable.
+- The limited set of principal components can then be used in place of the (more numerous) original predictors, reducing dimensionality.
+- A superficially similar technique for categorical data is correspondence analysis, but it is not useful in a big data context.
+
+## K-Means Clustering
+
+### Key Terms
+
+- **Cluster**
+
+  - A group of records that are similar.
+
+- **Cluster mean**
+
+  - The vector of variable means for the records in a cluster.
+
+- **K**
+
+  - The nuber of clusters.
+
+### Key Ideas
+
+- The number of desired clusters, K, is chosen by the user.
+- The algorithm develops clusters by iteratively assigning records to the nearest cluster mean until clust assignments do not chance.
+- Practical considerations usually dominate the choice of K; there is no statistically determined optimal number of clusters.
+
+## Hierarchical Clustering
+
+### Key Terms
+
+- **Dendrogram**
+
+  - A visual representation of the records and the hierarchy of clusters to which they belong.
+
+- **Distance**
+
+  - A measure of how close one record is to another.
+
+- **Dissimilarity**
+
+  - A measure of how close one cluster is to another.
+
+### Key Ideas
+
+- Hierarchical clustering starts with every record in its own cluster.
+- Progressively, clusters are joined to nerby clusters until all records belong to a single cluster (the agglomerative algorithm).
+- The agglomeration history is retained and plotted, and the user (without specifying the number of clusters beforehand) can visualize the number and the structure of clusters at different stages.
+- Inter-cluster distances are computed in different ways, all relying on the set of all inter-record distances.
+
+## Model-Based Clustering
+
+### Key Ideas
+
+- Clusters are assumed to derive from different data-generating processes with different probability distributions.
+- Different models are fit, assuming different numbers of (typically normal) distributions.
+- The method chooses the model (and the associated number of clusters) that fits the data well without using too many parameters (i.e., overfitting).
+
+## Scaling Data
+
+### Key Terms
+
+- **Scaling**
+
+  - Squashing or expanding data, usually to bring multiple variables to the same scale.
+
+- **Normalization**
+
+  - One method of scaling - subtracting the mean and dividing by the standard deviation. (Synonym: Standardization)
+
+- **Gower's Distance**
+
+  - A scaling algorithm applied to mixed numeric and categorical data to bring all variables to a 0-1 range.
+
+### Key Ideas
+
+- Variables measured on different scaled need to be transformed to similar scales so that their impact on algorithms is not determined mainly by their scale.
+- A common scaling method is normalization (standardization) - subtracting the mean and dividing by the standard deviation.
+- Another method is Gower's distance, which scales all variables to the 0-1 range (it is often used with mixed numeric and categorical data).
