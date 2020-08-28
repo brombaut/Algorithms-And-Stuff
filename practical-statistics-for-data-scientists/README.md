@@ -924,13 +924,103 @@ Key term and ideas from the book.
 
 ### Key Terms
 
-- **TT**
+- **Correlated Variables**
 
-  -
+  - When the predictor variables are highly correlated, it is difficult to interpret the individual coefficients.
+
+- **Multicollinearity**
+
+  - When the predictor variables have perfect, or near perfect, correlation, the regression can be unstable or impossible to compute. (Synonym: collinearity)
+
+- **Confounding Variables**
+
+  - An important predictor that, when omitted, leads to spurious relationships in a regression equation.
+
+- **Main Effects**
+
+  - The relationship between a predictor and the outcome variable, independent of other variables.
+
+- **Interactions**
+
+  - An interdependent relationship between two or more predictors and the response.
 
 ### Key Ideas
 
--
+- Because of correlation between predictors, care must be taken in the interpretation of the coefficients in multiple linear regression.
+- Multicollinearity can cause numerical instability in fitting the regression equation.
+- A confounding variable is an important predictor that is omitted from a model and can lead to a regression equation with spurious relationships.
+- An interaction term between two variables is needed if the relationship between the variables and the response is interdependent.
+
+## Regression Diagnostics
+
+### Key Terms
+
+- **Standardized Residuals**
+
+  - Residuals divided by the standard error of the residuals.
+
+- **Outliers**
+
+  - Records (or outcome values) that are distant from the rest of the data (or the predicted outcome).
+
+- **Influential Value**
+
+  - A value or record whose presence or absence makes a big difference in the regression equation.
+
+- **Leverage**
+
+  - The degree of influence that a single record has on a regression equation. (Synonym: hat-value)
+
+- **Non-normal residuals**
+
+  - Non-normally distributed residuals can invalidate some technical requirements of regression but are usually not a concern in data science.
+
+- **Heteroskedasticity**
+
+  - When some ranges of the outcome experience residuals with higher variance (may indicate a predictor missing from the equation).
+
+- **Partial Residual Plots**
+
+  - A diagnostic plot to illuminate the relationship between the outcome variable and a single predictor. (Synonym: added variable plot)
+
+### Key Ideas
+
+- While outliers can cause problems for small data sets, the primary interest with outliers it to identify problems with the data, or locate anomalies.
+- Single records (including regression outliers) can have a big influence on a regression equation with small data, but this effect washes out in big data.
+- If the regression model is used for formal inference (p-values and the like), then certain assumptions about the distribution of the residuals should be checked. In general, however, the distribution of redisuals is not critical in data science.
+- The partial residuals plot can be used to qualitatively assess the fit for each regression term, possibly leading to alternative model specifications.
+
+## Nonlinear Regression
+
+### Key Terms
+
+- **Polynomial regression**
+
+  - Adds polynomial terms (squares, cubes, etc.) to a regression.
+
+- **Spline regression**
+
+  - Fitting a smooth curve with a series of polynomial segments.
+
+- **Knots**
+
+  - Values that separate spline segments.
+
+- **Generalized additive models**
+
+  - Spline models with automated selection of knots. (Synonym: GAM)
+
+### Key Ideas
+
+- Outliers in regression are records with a large residual.
+- Multicollinearity can cause numerical instability in fitting the regression equation.
+- A confounding variable is an important predictor that is omitted from a model and can lead to a regression equation with spurious relationships.
+- An interaction term between two bariables is needed if the effect of one variable depends on the level or magnitude of the other.
+- Polynomial regression can fit nonlinear relationships between predictos and the outcome variable.
+- Splines are series of polynomial segments strung together, joining at knots.
+- We can automate the process of specifying the knots in splines using generalized additive models (GAM).
+
+# Chapter 5 - Classification
 
 ## T
 
