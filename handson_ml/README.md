@@ -125,10 +125,26 @@
   <![endif]-->
 </head>
 <body>
-<h1 class="list-paragraph" data-number="1" id="machine-learning-topics"><span class="header-section-number">1</span> Machine Learning Topics</h1>
-<h1 data-number="2" id="the-machine-learning-landscape"><span class="header-section-number">2</span> The Machine Learning Landscape</h1>
-<h2 data-number="2.1" id="types-of-machine-learning-systems"><span class="header-section-number">2.1</span> Types of Machine Learning Systems</h2>
-<h3 data-number="2.1.1" id="supervised-vs-unsupervised"><span class="header-section-number">2.1.1</span> Supervised vs Unsupervised</h3>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#the-machine-learning-landscape"><span class="toc-section-number">1</span> The Machine Learning Landscape</a>
+<ul>
+<li><a href="#types-of-machine-learning-systems"><span class="toc-section-number">1.1</span> Types of Machine Learning Systems</a>
+<ul>
+<li><a href="#supervised-vs-unsupervised"><span class="toc-section-number">1.1.1</span> Supervised vs Unsupervised</a></li>
+<li><a href="#batch-and-online-learning"><span class="toc-section-number">1.1.2</span> Batch and Online Learning</a></li>
+<li><a href="#instance-based-vs.-model-based-learning"><span class="toc-section-number">1.1.3</span> Instance-Based vs. Model-Based learning</a></li>
+</ul></li>
+<li><a href="#main-challenges-of-machine-learning"><span class="toc-section-number">1.2</span> Main Challenges of Machine Learning</a></li>
+<li><a href="#testing-and-validation"><span class="toc-section-number">1.3</span> Testing and Validation</a></li>
+</ul></li>
+<li><a href="#end-to-end-machine-learning-project"><span class="toc-section-number">2</span> End-to-End Machine Learning Project</a></li>
+</ul>
+</nav>
+<p>Machine Learning Topics</p>
+<h1 data-number="1" id="the-machine-learning-landscape"><span class="header-section-number">1</span> The Machine Learning Landscape</h1>
+<h2 data-number="1.1" id="types-of-machine-learning-systems"><span class="header-section-number">1.1</span> Types of Machine Learning Systems</h2>
+<h3 data-number="1.1.1" id="supervised-vs-unsupervised"><span class="header-section-number">1.1.1</span> Supervised vs Unsupervised</h3>
 <ul>
 <li><p><strong>Supervised Learning</strong><br />
 The training set you feed to the algorithm includes the desired solutions, called <em>labels</em>.</p></li>
@@ -139,7 +155,7 @@ The algorithms can deal with data that’s partially labeled. Most of these type
 <li><p><strong>Reinforcement Learning<br />
 </strong>The learning system (<em>agent</em>) can observe the environment, select and perform actions, and get <em>rewards</em> or <em>penalties</em> in return. It must then learn by itself what is the best strategy, called a <em>policy</em>, to get the most reward over time. A policy defines what action the agent should choose when it is in a given situation.</p></li>
 </ul>
-<h3 data-number="2.1.2" id="batch-and-online-learning"><span class="header-section-number">2.1.2</span> Batch and Online Learning</h3>
+<h3 data-number="1.1.2" id="batch-and-online-learning"><span class="header-section-number">1.1.2</span> Batch and Online Learning</h3>
 <ul>
 <li><p><strong>Batch Learning</strong><br />
 The system is incapable of learning incrementally: it must be trained using all the available data, usually done offline, and then once the model is trained, it is then launched into production and runs without learning anymore (<em>offline learning</em>)</p></li>
@@ -153,7 +169,7 @@ You train the system incrementally by feeding it data instances sequentially, ei
 <li><p>If bad data is fed to the system, the system’s performance will gradually decline.</p></li>
 </ul></li>
 </ul>
-<h3 data-number="2.1.3" id="instance-based-vs.-model-based-learning"><span class="header-section-number">2.1.3</span> Instance-Based vs. Model-Based learning</h3>
+<h3 data-number="1.1.3" id="instance-based-vs.-model-based-learning"><span class="header-section-number">1.1.3</span> Instance-Based vs. Model-Based learning</h3>
 <p>How do machine learning systems <em>generalize</em>?</p>
 <ul>
 <li><p><strong>Instance-based learning</strong><br />
@@ -169,7 +185,7 @@ The system learns the examples by heart, then generalizes to new cases by using 
 </ul></li>
 </ul></li>
 </ul>
-<h2 data-number="2.2" id="main-challenges-of-machine-learning"><span class="header-section-number">2.2</span> Main Challenges of Machine Learning</h2>
+<h2 data-number="1.2" id="main-challenges-of-machine-learning"><span class="header-section-number">1.2</span> Main Challenges of Machine Learning</h2>
 <ul>
 <li><p>Insufficient Quantity of Training Data</p></li>
 <li><p>Nonrepresentative Training Data</p></li>
@@ -178,8 +194,8 @@ The system learns the examples by heart, then generalizes to new cases by using 
 <li><p>Overfitting</p></li>
 <li><p>Underfitting</p></li>
 </ul>
-<h2 data-number="2.3" id="testing-and-validation"><span class="header-section-number">2.3</span> Testing and Validation</h2>
-<p>Split data into two sets: <em>training</em> and <em>test</em> sets</p>
-<h1 data-number="3" id="end-to-end-machine-learning-project"><span class="header-section-number">3</span> End-to-End Machine Learning Project</h1>
+<h2 data-number="1.3" id="testing-and-validation"><span class="header-section-number">1.3</span> Testing and Validation</h2>
+<p>Split data into two sets: <em>training</em> and <em>test</em> sets. The error rate on new cases is called the <em>generalization error</em> (or <em>out-of-sample error</em>), and by evaluating your model on the test set, you get an estimate of this error.</p>
+<h1 data-number="2" id="end-to-end-machine-learning-project"><span class="header-section-number">2</span> End-to-End Machine Learning Project</h1>
 </body>
 </html>
