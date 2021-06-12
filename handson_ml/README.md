@@ -24,7 +24,17 @@
 </ul></li>
 <li><a href="#exercises"><span class="toc-section-number">1.4</span> Exercises</a></li>
 </ul></li>
-<li><a href="#end-to-end-machine-learning-project"><span class="toc-section-number">2</span> End-to-End Machine Learning Project</a></li>
+<li><a href="#end-to-end-machine-learning-project-35"><span class="toc-section-number">2</span> End-to-End Machine Learning Project [35]</a>
+<ul>
+<li><a href="#look-at-the-big-picture-37"><span class="toc-section-number">2.1</span> Look at the Big Picture [37]</a></li>
+<li><a href="#get-the-data-42"><span class="toc-section-number">2.2</span> Get the Data [42]</a></li>
+<li><a href="#discover-and-visualize-the-data-to-gain-insights"><span class="toc-section-number">2.3</span> Discover and visualize the data to gain insights</a></li>
+<li><a href="#prepare-the-data-for-machine-learning-algorithms"><span class="toc-section-number">2.4</span> Prepare the data for Machine Learning algorithms</a></li>
+<li><a href="#select-a-model-and-train-it"><span class="toc-section-number">2.5</span> Select a model and train it</a></li>
+<li><a href="#fine-tune-your-model"><span class="toc-section-number">2.6</span> Fine-tune your model</a></li>
+<li><a href="#present-your-solution"><span class="toc-section-number">2.7</span> Present your solution</a></li>
+<li><a href="#launch-monitor-and-maintain-your-system"><span class="toc-section-number">2.8</span> Launch, monitor, and maintain your system</a></li>
+</ul></li>
 </ul>
 </nav>
 <h1 data-number="1" id="the-machine-learning-landscape"><span class="header-section-number">1</span> The Machine Learning Landscape</h1>
@@ -106,6 +116,66 @@ A validation set is used to compare models. It makes it possible to select the b
 <li><p><em><u>What can go wrong if you tune hyperparameters using the test set?</u></em><br />
 If you tune hyperparameters using the test set, you risk overfitting the test set, and the generalization error you measure will be optimistic (you may launch a model that performs worse than you expect).</p></li>
 </ul>
-<h1 data-number="2" id="end-to-end-machine-learning-project"><span class="header-section-number">2</span> End-to-End Machine Learning Project</h1>
+<h1 data-number="2" id="end-to-end-machine-learning-project-35"><span class="header-section-number">2</span> End-to-End Machine Learning Project [35]</h1>
+<h2 data-number="2.1" id="look-at-the-big-picture-37"><span class="header-section-number">2.1</span> Look at the Big Picture [37]</h2>
+<ul>
+<li><p>Frame the Problem – The first question to ask your boss is what exactly the busines object is.</p>
+<ul>
+<li><p>Data pipeline – A sequence of data processing components.</p></li>
+<li><p>Should also ask what the current solution is.</p></li>
+</ul></li>
+<li><p>Select a Performance Measure</p>
+<ul>
+<li><p>Root Mean Square Error (RMSE)</p>
+<ul>
+<li><p>Corresponds to the Euclidean norm – the notion of distance you are familiar with.</p></li>
+<li><p>Also called the <em>l<sub>2</sub> norm</em>.</p></li>
+</ul></li>
+<li><p>Mean Absolute Error (MAE)</p>
+<ul>
+<li><p>Sometimes called the Manhattan norm because it measures the distance between two points in a city if you can only travel along orthogonal city blocks.</p></li>
+<li><p>Also called the <em>l<sub>1</sub> norm</em>.</p></li>
+</ul></li>
+<li><p>The higher the norm index, the more it focuses on large values and neglects small ones.</p></li>
+</ul></li>
+<li><p>Check the assumptions</p>
+<ul>
+<li><p>List and verify the assumptions.</p></li>
+</ul></li>
+</ul>
+<h2 data-number="2.2" id="get-the-data-42"><span class="header-section-number">2.2</span> Get the Data [42]</h2>
+<ul>
+<li><p>Create the Workspace</p>
+<ul>
+<li><p>Create an Isolated Environment</p></li>
+</ul></li>
+<li><p>Download the data</p></li>
+<li><p>Take a quick look at the data structures</p>
+<ul>
+<li><p>.info()</p></li>
+<li><p>.value_counts()</p></li>
+<li><p>.describe()</p>
+<ul>
+<li><p><em>Standard deviation</em> – the square root of the <em>variance</em>, which is the average of the squared deviation from the mean. When a feature has a bell-shaped <em>normal distribution</em> (<em>Gaussian distribution</em>), which is very common, the “68-95-99.7” rule applies: about 68% of the values fall within 1std of the mean, 95% within 2std, and 99.7% within 3std.</p></li>
+<li><p>Percentiles</p></li>
+<li><p>Quartiles</p></li>
+</ul></li>
+<li><p>.hist()</p></li>
+</ul></li>
+<li><p>Create a Test Set</p>
+<ul>
+<li><p>Protect from <em>data snooping bias</em></p></li>
+<li><p>.train_test_split()</p></li>
+<li><p>np.random.seed(42)</p></li>
+<li><p>.cut()</p></li>
+<li><p>StratifiedShuffleSplit</p></li>
+</ul></li>
+</ul>
+<h2 data-number="2.3" id="discover-and-visualize-the-data-to-gain-insights"><span class="header-section-number">2.3</span> Discover and visualize the data to gain insights</h2>
+<h2 data-number="2.4" id="prepare-the-data-for-machine-learning-algorithms"><span class="header-section-number">2.4</span> Prepare the data for Machine Learning algorithms</h2>
+<h2 data-number="2.5" id="select-a-model-and-train-it"><span class="header-section-number">2.5</span> Select a model and train it</h2>
+<h2 data-number="2.6" id="fine-tune-your-model"><span class="header-section-number">2.6</span> Fine-tune your model</h2>
+<h2 data-number="2.7" id="present-your-solution"><span class="header-section-number">2.7</span> Present your solution</h2>
+<h2 data-number="2.8" id="launch-monitor-and-maintain-your-system"><span class="header-section-number">2.8</span> Launch, monitor, and maintain your system</h2>
 </body>
 </html>
