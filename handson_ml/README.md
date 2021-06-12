@@ -28,12 +28,20 @@
 <ul>
 <li><a href="#look-at-the-big-picture-37"><span class="toc-section-number">2.1</span> Look at the Big Picture [37]</a></li>
 <li><a href="#get-the-data-42"><span class="toc-section-number">2.2</span> Get the Data [42]</a></li>
-<li><a href="#discover-and-visualize-the-data-to-gain-insights"><span class="toc-section-number">2.3</span> Discover and visualize the data to gain insights</a></li>
-<li><a href="#prepare-the-data-for-machine-learning-algorithms"><span class="toc-section-number">2.4</span> Prepare the data for Machine Learning algorithms</a></li>
-<li><a href="#select-a-model-and-train-it"><span class="toc-section-number">2.5</span> Select a model and train it</a></li>
-<li><a href="#fine-tune-your-model"><span class="toc-section-number">2.6</span> Fine-tune your model</a></li>
-<li><a href="#present-your-solution"><span class="toc-section-number">2.7</span> Present your solution</a></li>
-<li><a href="#launch-monitor-and-maintain-your-system"><span class="toc-section-number">2.8</span> Launch, monitor, and maintain your system</a></li>
+<li><a href="#discover-and-visualize-the-data-to-gain-insights-56"><span class="toc-section-number">2.3</span> Discover and visualize the data to gain insights [56]</a></li>
+<li><a href="#prepare-the-data-for-machine-learning-algorithms-62"><span class="toc-section-number">2.4</span> Prepare the data for Machine Learning algorithms [62]</a></li>
+<li><a href="#scikit-learn-design-64"><span class="toc-section-number">2.5</span> Scikit-Learn Design [64]</a>
+<ul>
+<li><a href="#consistency"><span class="toc-section-number">2.5.1</span> Consistency</a></li>
+<li><a href="#inspection"><span class="toc-section-number">2.5.2</span> Inspection</a></li>
+<li><a href="#non-proliferation-of-classes"><span class="toc-section-number">2.5.3</span> Non-proliferation of classes</a></li>
+<li><a href="#composition"><span class="toc-section-number">2.5.4</span> Composition</a></li>
+<li><a href="#sensible-defaults"><span class="toc-section-number">2.5.5</span> Sensible defaults</a></li>
+</ul></li>
+<li><a href="#select-and-train-a-model-72"><span class="toc-section-number">2.6</span> Select and Train a Model [72]</a></li>
+<li><a href="#fine-tune-your-model-75"><span class="toc-section-number">2.7</span> Fine-tune your model [75]</a></li>
+<li><a href="#launch-monitor-and-maintain-your-system-80"><span class="toc-section-number">2.8</span> Launch, monitor, and maintain your system [80]</a></li>
+<li><a href="#exercises-84"><span class="toc-section-number">2.9</span> Exercises [84]</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -167,15 +175,126 @@ If you tune hyperparameters using the test set, you risk overfitting the test se
 <li><p>Protect from <em>data snooping bias</em></p></li>
 <li><p>.train_test_split()</p></li>
 <li><p>np.random.seed(42)</p></li>
-<li><p>.cut()</p></li>
+<li><p>.cut()</p>
+<ul>
+<li><p>Bin numerical attribute into categories</p></li>
+</ul></li>
 <li><p>StratifiedShuffleSplit</p></li>
 </ul></li>
 </ul>
-<h2 data-number="2.3" id="discover-and-visualize-the-data-to-gain-insights"><span class="header-section-number">2.3</span> Discover and visualize the data to gain insights</h2>
-<h2 data-number="2.4" id="prepare-the-data-for-machine-learning-algorithms"><span class="header-section-number">2.4</span> Prepare the data for Machine Learning algorithms</h2>
-<h2 data-number="2.5" id="select-a-model-and-train-it"><span class="header-section-number">2.5</span> Select a model and train it</h2>
-<h2 data-number="2.6" id="fine-tune-your-model"><span class="header-section-number">2.6</span> Fine-tune your model</h2>
-<h2 data-number="2.7" id="present-your-solution"><span class="header-section-number">2.7</span> Present your solution</h2>
-<h2 data-number="2.8" id="launch-monitor-and-maintain-your-system"><span class="header-section-number">2.8</span> Launch, monitor, and maintain your system</h2>
+<h2 data-number="2.3" id="discover-and-visualize-the-data-to-gain-insights-56"><span class="header-section-number">2.3</span> Discover and visualize the data to gain insights [56]</h2>
+<ul>
+<li><p>Looking for correlations</p>
+<ul>
+<li><p>.corr()</p>
+<ul>
+<li><p>Computes <em>standard correlation coefficient</em> (<em>Pearson’s r</em>)</p></li>
+<li><p>Only measures linear correlations.</p></li>
+</ul></li>
+<li><p>.scatter_matrix()</p>
+<ul>
+<li><p>Plots every numerical attribute against every other numerical attribute.</p></li>
+</ul></li>
+</ul></li>
+<li><p>Experimenting with Attribute Combinations</p>
+<ul>
+<li><p>Computing logs, exponents, combining attributes to make new ones</p></li>
+</ul></li>
+</ul>
+<h2 data-number="2.4" id="prepare-the-data-for-machine-learning-algorithms-62"><span class="header-section-number">2.4</span> Prepare the data for Machine Learning algorithms [62]</h2>
+<ul>
+<li><p>Data Cleaning</p>
+<ul>
+<li><p>Handle missing values</p>
+<ul>
+<li><p>SimpleImputer</p></li>
+</ul></li>
+</ul></li>
+<li><p>Handling Text and Categorical Attributes</p>
+<ul>
+<li><p>OneHotEncoder()</p></li>
+</ul></li>
+<li><p>Feature Scaling</p>
+<ul>
+<li><p>Min-max scaling (normalization)</p>
+<ul>
+<li><p>Values are shifted and rescaled so that they end up ranging from 0 to 1.</p></li>
+<li><p><em>MinMaxScaler</em></p></li>
+</ul></li>
+<li><p>Standardization</p>
+<ul>
+<li><p>Subtract the mean, and then divide by the standard deviation</p></li>
+<li><p><em>StandardScaler</em></p></li>
+</ul></li>
+</ul></li>
+<li><p>Transformation Pipelines</p>
+<ul>
+<li><p><em>Pipeline</em></p></li>
+<li><p><em>ColumnTranformer</em></p></li>
+</ul></li>
+</ul>
+<h2 data-number="2.5" id="scikit-learn-design-64"><span class="header-section-number">2.5</span> Scikit-Learn Design [64]</h2>
+<h3 data-number="2.5.1" id="consistency"><span class="header-section-number">2.5.1</span> Consistency</h3>
+<p>All objects share a consistent and simple interface</p>
+<h4 data-number="2.5.1.1" id="estimators"><span class="header-section-number">2.5.1.1</span> Estimators</h4>
+<p>Any object that can estimate some parameters based on a dataset is called an <em>estimator</em> (e.g., an <em>imputer</em> is an estimator). The estimation itself is performed by the <em>.fit()</em> method, and it takes only a dataset as a parameter (or two for supervised learning algorithms; the second dataset contains the labels). Any other parameters needed to guide the estimation process is considered a hyperparameter (such as an <em>imputer’s strategy</em>), and it must be set as an instance variable (generally via a constructor parameter).</p>
+<h4 data-number="2.5.1.2" id="transformers"><span class="header-section-number">2.5.1.2</span> Transformers</h4>
+<p>Some estimators (such as an <em>imputer</em>) can also transform a dataset; these are called <em>transformers</em>. Once again, the API is simple: the transformation is performed by the <em>.transform()</em> method with the dataset to transform as a parameter. It returns the transformed dataset. This transformation generally relies on the learned parameters, as is the case for an <em>imputer</em>. All transformers also have a convenience method called <em>.fit_tranform()</em> that is equivalent to calling <em>.fit()</em> and then <em>.transform()</em> (but sometimes <em>.fit_transform()</em> is optimized and runs much faster).</p>
+<h4 data-number="2.5.1.3" id="predictors"><span class="header-section-number">2.5.1.3</span> Predictors</h4>
+<p>Finally, some estimators, given a dataset, are capable of making predictions; they are called predictors. For example, the <em>LinearRegression</em> model is a predictor. A predictor has a <em>.predict()</em> method that takes a dataset of new instances and returns a dataset of corresponding predictions. It also has a <em>.score()</em> method that measures the quality of the predictions, given a test set (and the corresponding labels, for supervised learning algorithms). Some predictors also provide methods to measure the confidence of their predictions.</p>
+<h3 data-number="2.5.2" id="inspection"><span class="header-section-number">2.5.2</span> Inspection</h3>
+<p>All the estimator’s hyperparameters are accessible directly via public instance variables (e.g., <em>imputer.strategy</em>), and all the estimator’s learned parameters are accessible via public instance variables with an underscore suffix (e.g., <em>imputer.statistics_</em>).</p>
+<h3 data-number="2.5.3" id="non-proliferation-of-classes"><span class="header-section-number">2.5.3</span> Non-proliferation of classes</h3>
+<p>Datasets are represented as NumPy arrays or SciPy sparse matrices, instead of homemade classes. Hyperparameters are just regular Python strings or numbers.</p>
+<h3 data-number="2.5.4" id="composition"><span class="header-section-number">2.5.4</span> Composition</h3>
+<p>Existing building blocks are reused as much as possible. For example, it is easy to create a Pipeline estimator from an arbitrary sequence of transformers followed by a final estimator.</p>
+<h3 data-number="2.5.5" id="sensible-defaults"><span class="header-section-number">2.5.5</span> Sensible defaults</h3>
+<p>Scikit-Learn provides reasonable default values for most parameters, making it easy to quickly create a baseline working system.</p>
+<h2 data-number="2.6" id="select-and-train-a-model-72"><span class="header-section-number">2.6</span> Select and Train a Model [72]</h2>
+<ul>
+<li><p>Training and Evaluating the Training Set</p>
+<ul>
+<li><p><em>sklearn.metrics.mean_squared_error</em></p></li>
+</ul></li>
+<li><p>Better Evaluation Using Cross-Validation</p>
+<ul>
+<li><p><em>sklearn.model_selection.cross_val_score</em></p>
+<ul>
+<li><p>Expects a utility function (greater is better) rather than a cost function (lower is better).</p></li>
+</ul></li>
+</ul></li>
+<li><p>You should save every model you experiment with.</p>
+<ul>
+<li><p><em>pickle</em></p></li>
+<li><p><em>joblib</em></p></li>
+</ul></li>
+</ul>
+<h2 data-number="2.7" id="fine-tune-your-model-75"><span class="header-section-number">2.7</span> Fine-tune your model [75]</h2>
+<ul>
+<li><p>Grid Search</p>
+<ul>
+<li><p><em>sklearn.model_selection.GridSearchCV</em></p></li>
+<li><p>Tell which hyperparameters to experiment with and what values to try out, and it will use cross-validation to evaluate all the possible combinations.</p></li>
+<li><p>When you have no idea what value a hyperparameter should have, a simple approach is to try out consecutive powers of 10.</p></li>
+<li><p><em>.best_params_</em> attribute</p></li>
+<li><p><em>.best_estimator_</em> attribute</p></li>
+<li><p><em>.cv_results_</em> attribute for all evaluation scores</p></li>
+</ul></li>
+<li><p>Randomized search</p>
+<ul>
+<li><p><em>sklearn.model_selection.RandomizedSearchCV</em></p></li>
+</ul></li>
+<li><p>Ensemble Methods</p></li>
+<li><p>Analyze the Best Models and Their Errors</p>
+<ul>
+<li><p>E.g. <em>RandomForestRegressor</em> has <em>feature_importances_</em></p></li>
+</ul></li>
+<li><p>Evaluate your system on the test set</p></li>
+</ul>
+<h2 data-number="2.8" id="launch-monitor-and-maintain-your-system-80"><span class="header-section-number">2.8</span> Launch, monitor, and maintain your system [80]</h2>
+<h2 data-number="2.9" id="exercises-84"><span class="header-section-number">2.9</span> Exercises [84]</h2>
+<blockquote>
+<p>In Notebook</p>
+</blockquote>
 </body>
 </html>
