@@ -1,2 +1,2 @@
 #!/bin/bash
-pandoc -s Notes.docx -t html -o README.md -N --toc --no-highlight -c README_styles.css
+pandoc -s Notes.docx -t html -N --toc --metadata title="Machine Learning Topics" | sed '/^<head>/,/^\<\/head>/{/^<head>/!{/^\<\/head>/!d;};}' > README.md
