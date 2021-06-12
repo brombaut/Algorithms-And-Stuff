@@ -8,21 +8,21 @@
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#the-machine-learning-landscape"><span class="toc-section-number">1</span> The Machine Learning Landscape</a>
+<li><a href="#the-machine-learning-landscape-1"><span class="toc-section-number">1</span> The Machine Learning Landscape [1]</a>
 <ul>
-<li><a href="#types-of-machine-learning-systems"><span class="toc-section-number">1.1</span> Types of Machine Learning Systems</a>
+<li><a href="#types-of-machine-learning-systems-7"><span class="toc-section-number">1.1</span> Types of Machine Learning Systems [7]</a>
 <ul>
 <li><a href="#supervised-vs-unsupervised"><span class="toc-section-number">1.1.1</span> Supervised vs Unsupervised</a></li>
 <li><a href="#batch-and-online-learning"><span class="toc-section-number">1.1.2</span> Batch and Online Learning</a></li>
 <li><a href="#instance-based-vs.-model-based-learning"><span class="toc-section-number">1.1.3</span> Instance-Based vs. Model-Based learning</a></li>
 </ul></li>
-<li><a href="#main-challenges-of-machine-learning"><span class="toc-section-number">1.2</span> Main Challenges of Machine Learning</a></li>
-<li><a href="#testing-and-validation"><span class="toc-section-number">1.3</span> Testing and Validation</a>
+<li><a href="#main-challenges-of-machine-learning-23"><span class="toc-section-number">1.2</span> Main Challenges of Machine Learning [23]</a></li>
+<li><a href="#testing-and-validation-30"><span class="toc-section-number">1.3</span> Testing and Validation [30]</a>
 <ul>
 <li><a href="#hyperparameter-tuning-and-model-selection"><span class="toc-section-number">1.3.1</span> Hyperparameter Tuning and Model Selection</a></li>
 <li><a href="#data-mismatch"><span class="toc-section-number">1.3.2</span> Data Mismatch</a></li>
 </ul></li>
-<li><a href="#exercises"><span class="toc-section-number">1.4</span> Exercises</a></li>
+<li><a href="#exercises-33-sol-719"><span class="toc-section-number">1.4</span> Exercises [33 – Sol 719]</a></li>
 </ul></li>
 <li><a href="#end-to-end-machine-learning-project-35"><span class="toc-section-number">2</span> End-to-End Machine Learning Project [35]</a>
 <ul>
@@ -45,8 +45,8 @@
 </ul></li>
 </ul>
 </nav>
-<h1 data-number="1" id="the-machine-learning-landscape"><span class="header-section-number">1</span> The Machine Learning Landscape</h1>
-<h2 data-number="1.1" id="types-of-machine-learning-systems"><span class="header-section-number">1.1</span> Types of Machine Learning Systems</h2>
+<h1 data-number="1" id="the-machine-learning-landscape-1"><span class="header-section-number">1</span> The Machine Learning Landscape [1]</h1>
+<h2 data-number="1.1" id="types-of-machine-learning-systems-7"><span class="header-section-number">1.1</span> Types of Machine Learning Systems [7]</h2>
 <h3 data-number="1.1.1" id="supervised-vs-unsupervised"><span class="header-section-number">1.1.1</span> Supervised vs Unsupervised</h3>
 <ul>
 <li><p><strong>Supervised Learning</strong><br />
@@ -88,7 +88,7 @@ The system learns the examples by heart, then generalizes to new cases by using 
 </ul></li>
 </ul></li>
 </ul>
-<h2 data-number="1.2" id="main-challenges-of-machine-learning"><span class="header-section-number">1.2</span> Main Challenges of Machine Learning</h2>
+<h2 data-number="1.2" id="main-challenges-of-machine-learning-23"><span class="header-section-number">1.2</span> Main Challenges of Machine Learning [23]</h2>
 <ul>
 <li><p>Insufficient Quantity of Training Data</p></li>
 <li><p>Nonrepresentative Training Data</p></li>
@@ -97,7 +97,7 @@ The system learns the examples by heart, then generalizes to new cases by using 
 <li><p>Overfitting</p></li>
 <li><p>Underfitting</p></li>
 </ul>
-<h2 data-number="1.3" id="testing-and-validation"><span class="header-section-number">1.3</span> Testing and Validation</h2>
+<h2 data-number="1.3" id="testing-and-validation-30"><span class="header-section-number">1.3</span> Testing and Validation [30]</h2>
 <p>Split data into two sets: <em>training</em> and <em>test</em> sets. The error rate on new cases is called the <em>generalization error</em> (or <em>out-of-sample error</em>), and by evaluating your model on the test set, you get an estimate of this error. This value tells you how well your model will perform on instances it has never seen before.</p>
 <h3 data-number="1.3.1" id="hyperparameter-tuning-and-model-selection"><span class="header-section-number">1.3.1</span> Hyperparameter Tuning and Model Selection</h3>
 <p><strong>Situation</strong><br />
@@ -113,7 +113,7 @@ You measured the generalization error multiple times on the test set, and you ad
 </ul>
 <h3 data-number="1.3.2" id="data-mismatch"><span class="header-section-number">1.3.2</span> Data Mismatch</h3>
 <p>Training data might not be representative of the data that will be used in production.</p>
-<h2 data-number="1.4" id="exercises"><span class="header-section-number">1.4</span> Exercises</h2>
+<h2 data-number="1.4" id="exercises-33-sol-719"><span class="header-section-number">1.4</span> Exercises [33 – Sol 719]</h2>
 <ul>
 <li><p><em><u>What is a test set, and why would you want to use it?</u></em><br />
 A test set is used to estimate the generalization error that a model will make on new instances, before the model is launched in production.</p></li>
